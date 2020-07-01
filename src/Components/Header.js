@@ -6,26 +6,26 @@ import heroImage from '../Assets/Images/hero.png'
 import Navigation from './Navigation'
 
 const Header = () => {
-	return (
-		<Wrapper>
-			<Row>
-				<Col span={12}>
-					<Logo src={logo} alt="Logo" />
-				</Col>
-				<Col span={12}>
-					<Navigation />
-				</Col>
-			</Row>
-			<Row>
-				<Col span={24}>
-					<Slogan>
+  return (
+    <Wrapper>
+      <Row>
+        <Col span={12}>
+          <Logo src={logo} alt='Logo' />
+        </Col>
+        <Col span={12}>
+          <Navigation />
+        </Col>
+      </Row>
+      <Row>
+        <Col span={24}>
+          <Slogan>
 						Professional Audio Visual <br />
 						Equipment For Less
-					</Slogan>
-				</Col>
-			</Row>
-		</Wrapper>
-	)
+          </Slogan>
+        </Col>
+      </Row>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.header`
@@ -41,10 +41,10 @@ const Wrapper = styled.header`
 	height: 440px;
 `
 
-const Nav = styled.div`
-	background-color: red;
-	z-index: 40;
-`
+// const Nav = styled.div`
+// 	background-color: red;
+// 	z-index: 40;
+// `
 
 const Logo = styled.img`
 	width: 100px;

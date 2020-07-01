@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Main = () => {
-	return (
-		<Wrapper>
-			<h1>Main Page</h1>
-		</Wrapper>
-	)
+  return (
+    <Wrapper>
+      <h1>Main Page</h1>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.div`
