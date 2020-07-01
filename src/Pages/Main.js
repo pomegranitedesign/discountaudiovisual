@@ -11,7 +11,7 @@ const Main = () => {
 
 const Wrapper = styled.div`
 	background-color: #fff600;
-	height: 200vh;
+	height: 100vh;
 	z-index: 30;
 	position: relative;
 `
