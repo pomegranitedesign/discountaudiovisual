@@ -1,54 +1,55 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Row, Col } from 'antd'
 import logo from '../Assets/Images/logo.png'
-import heroImage from '../Assets/Images/hero.png'
+import heroImage from '../Assets/Images/hero.jpg'
 import Navigation from './Navigation'
 
 const Header = () => {
-  return (
-    <Wrapper>
-      <Row>
-        <Col span={12}>
-          <Logo src={logo} alt='Logo' />
-        </Col>
-        <Col span={12}>
-          <Navigation />
-        </Col>
-      </Row>
-      <Row>
-        <Col span={24}>
-          <Slogan>
-						Professional Audio Visual <br />
-						Equipment For Less
-          </Slogan>
-        </Col>
-      </Row>
-    </Wrapper>
-  )
+	return (
+		<Wrapper>
+			<div>
+				<Logo src={logo} alt="Logo" />
+				<Navigation />
+			</div>
+			<Slogan>
+				Professional Audio Visual <br />
+				Equipment For Less
+			</Slogan>
+		</Wrapper>
+	)
 }
 
 const Wrapper = styled.header`
-	padding-top: 40px;
-	padding-right: 117px;
-	padding-left: 117px;
-	padding-bottom: 100px;
+	div {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
+
 	z-index: 10 !important;
 	background-image: url(${heroImage});
 	background-attachment: fixed;
 	background-repeat: no-repeat;
-	box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.45);
-	height: 440px;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-position: center center;
+	box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.45);
+	padding-left: 118px;
+	padding-top: 40px;
+	padding-bottom: 60px;
+
+	@media screen and (max-width: 992px) {
+		padding-left: 40px;
+		padding-bottom: 20px;
+		background-position: top center;
+	}
 `
 
-// const Nav = styled.div`
-// 	background-color: red;
-// 	z-index: 40;
-// `
-
 const Logo = styled.img`
-	width: 100px;
 	z-index: 20;
+	width: 100px;
 `
 
 const Slogan = styled.h1`
