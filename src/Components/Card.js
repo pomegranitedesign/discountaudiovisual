@@ -12,7 +12,7 @@ const Card = ({ title, quantity, description = [], image = '' }) => {
 			<div>
 				<Image src={image} alt="Discount AV Equipment Image" />
 			</div>
-			<div>
+			<div style={{ maxWidth: 400 }}>
 				<Title>{title}</Title>
 				<Quantity>{quantity} PEOPLE</Quantity>
 				<Description>
@@ -51,6 +51,7 @@ const Wrapper = styled.div`
 	display: flex;
 	align-items: flex-start;
 	margin-bottom: 50px;
+	max-width: 250px;
 
 	@media screen and (max-width: 992px) {
 		flex-direction: column;
@@ -63,8 +64,8 @@ const Wrapper = styled.div`
 const Title = styled.h1`
 	padding: 0;
 	margin: 0;
-	font-size: 1.2vw;
-	max-width: 300px;
+	font-size: 1.4vw;
+	max-width: 330px;
 	font-weight: 800;
 
 	@media screen and (max-width: 992px) {
@@ -73,7 +74,7 @@ const Title = styled.h1`
 	}
 
 	@media screen and (max-width: 768px) {
-		font-size: 19px;
+		font-size: 22px;
 		text-align: center;
 	}
 `
@@ -90,7 +91,7 @@ const Quantity = styled.h1`
 	}
 
 	@media screen and (max-width: 768px) {
-		font-size: 12px;
+		font-size: 14px;
 		text-align: center;
 	}
 `

@@ -90,6 +90,15 @@ const Wrapper = styled.div`
 	@media screen and (max-width: 1333px) {
 		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 	}
+
+	@media screen and (max-width: 992px) {
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	}
+
+	@media screen and (max-width: 768px) {
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		justify-items: center;
+	}
 `
 
 export default Cards

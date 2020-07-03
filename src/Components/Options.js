@@ -73,10 +73,13 @@ const Options = () => {
 
 const Wrapper = styled.div`
 	margin-bottom: 20px;
+	min-width: 250px;
 	h2 {
 		margin-bottom: 10px;
+		font-size: 1.3vw;
 
 		@media screen and (max-width: 768px) {
+			font-size: 15px;
 			text-align: center;
 		}
 	}
