@@ -9,7 +9,7 @@ const Card = ({ title, quantity, description = [], image = '' }) => {
 
 	return (
 		<Wrapper>
-			<div style={{ marginRight: '8%' }}>
+			<div>
 				<Image src={image} alt="Discount AV Equipment Image" />
 			</div>
 			<div>
@@ -63,12 +63,17 @@ const Wrapper = styled.div`
 const Title = styled.h1`
 	padding: 0;
 	margin: 0;
-	max-width: 400px;
-	min-width: 200px;
 	font-size: 1.2vw;
+	max-width: 300px;
+	font-weight: 800;
+
+	@media screen and (max-width: 992px) {
+		margin-top: 10px;
+		font-size: 2vw;
+	}
 
 	@media screen and (max-width: 768px) {
-		font-size: 16px;
+		font-size: 19px;
 		text-align: center;
 	}
 `
@@ -77,7 +82,12 @@ const Quantity = styled.h1`
 	padding: 0;
 	margin: 0;
 	font-size: 1vw;
+	font-weight: 600;
 	margin-bottom: 34px;
+
+	@media screen and (max-width: 992px) {
+		font-size: 1.4vw;
+	}
 
 	@media screen and (max-width: 768px) {
 		font-size: 12px;
@@ -86,13 +96,19 @@ const Quantity = styled.h1`
 `
 
 const Description = styled.ul`
+	margin-bottom: 20px;
+
 	li {
 		list-style: none;
 		color: #000000;
-		font-size: 0.8vw;
-		@media screen and (max-width: 768px) {
-			font-size: 8px;
+		font-weight: 400;
+	}
+
+	@media screen and (max-width: 768px) {
+		margin-bottom: 30px;
+		li {
 			text-align: center;
+			font-size: 14px;
 		}
 	}
 `
@@ -120,6 +136,8 @@ const Button = styled.button`
 
 const Image = styled.img`
 	width: 15vw;
+	margin-right: 30px;
+	display: block;
 	@media screen and (max-width: 768px) {
 		width: 150px;
 		margin: 0 auto;

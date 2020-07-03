@@ -136,11 +136,6 @@ const Wrapper = styled.div`
 	}
 `
 
-const Choice = styled.a`
-	font-size: 1vw;
-	@media screen and (max-width: 768px) {
-		font-size: 10px;
-	}
-`
+const Choice = styled.a`@media screen and (max-width: 768px) {font-size: 12px;}`
 
 export default Options
