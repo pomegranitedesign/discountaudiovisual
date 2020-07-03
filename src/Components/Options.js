@@ -76,7 +76,7 @@ const Wrapper = styled.div`
 	min-width: 250px;
 	h2 {
 		margin-bottom: 10px;
-		font-size: 1.3vw;
+		font-size: 0.8vw;
 
 		@media screen and (max-width: 768px) {
 			font-size: 15px;

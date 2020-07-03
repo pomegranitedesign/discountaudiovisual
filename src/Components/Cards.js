@@ -84,19 +84,23 @@ const Cards = () => {
 
 const Wrapper = styled.div`
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(760px, 1fr));
 	grid-row-gap: 70px;
 
-	@media screen and (max-width: 1333px) {
-		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+	@media screen and (max-width: 1366px) {
+		grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
 	}
 
 	@media screen and (max-width: 992px) {
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+	}
+
+	@media screen and (max-width: 978px) {
+		grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
 	}
 
 	@media screen and (max-width: 768px) {
-		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
 		justify-items: center;
 	}
 `

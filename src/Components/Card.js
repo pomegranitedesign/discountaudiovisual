@@ -64,8 +64,8 @@ const Wrapper = styled.div`
 const Title = styled.h1`
 	padding: 0;
 	margin: 0;
-	font-size: 1.4vw;
-	max-width: 330px;
+	font-size: 1vw;
+	min-width: 450px;
 	font-weight: 800;
 
 	@media screen and (max-width: 992px) {
