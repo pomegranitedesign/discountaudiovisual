@@ -32,13 +32,16 @@ const ScrollToTop = (props) => {
 			else setShown(false)
 		}
 	}
-	useEffect(() => {
-		window.addEventListener('scroll', listenToScroll)
+	useEffect(
+		() => {
+			window.addEventListener('scroll', listenToScroll)
 
-		return () => {
-			window.removeEventListener('scroll', listenToScroll)
-		}
-	}, [])
+			return () => {
+				window.removeEventListener('scroll', listenToScroll)
+			}
+		},
+		[ listenToScroll ]
+	)
 	return isShown ? (
 		<Wrapper
 			onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
