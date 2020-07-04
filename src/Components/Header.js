@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link, withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import logo from '../Assets/Images/logo.png'
 import Navigation from './Navigation'
 import video from '../Assets/Videos/hero_video.mp4'
