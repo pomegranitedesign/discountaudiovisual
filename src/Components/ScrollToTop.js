@@ -5,33 +5,36 @@ import styled from 'styled-components'
 
 const ScrollToTop = (props) => {
 	const [ isShown, setShown ] = useState(false)
-	const listenToScroll = useCallback(() => {
-		const winScroll =
-			document.body.scrollTop || document.documentElement.scrollTop
+	const listenToScroll = useCallback(
+		() => {
+			const winScroll =
+				document.body.scrollTop || document.documentElement.scrollTop
 
-		const height =
-			document.documentElement.scrollHeight -
-			document.documentElement.clientHeight
+			const height =
+				document.documentElement.scrollHeight -
+				document.documentElement.clientHeight
 
-		const scrolled = winScroll / height
-		console.log(scrolled)
+			const scrolled = winScroll / height
+			console.log(scrolled)
 
-		const pathname = props.history.location.pathname
-		if (pathname === '/') {
-			if (scrolled >= 0.1846356742499176) setShown(true)
-			else setShown(false)
-		}
+			const pathname = props.history.location.pathname
+			if (pathname === '/') {
+				if (scrolled >= 0.1846356742499176) setShown(true)
+				else setShown(false)
+			}
 
-		if (pathname === '/audio-packages') {
-			if (scrolled >= 0.3091849935316947) setShown(true)
-			else setShown(false)
-		}
+			if (pathname === '/audio-packages') {
+				if (scrolled >= 0.3091849935316947) setShown(true)
+				else setShown(false)
+			}
 
-		if (pathname === '/visual-packages') {
-			if (scrolled >= 0.14915693904020752) setShown(true)
-			else setShown(false)
-		}
-	}, [])
+			if (pathname === '/visual-packages') {
+				if (scrolled >= 0.14915693904020752) setShown(true)
+				else setShown(false)
+			}
+		},
+		[ props.history.location.pathname ]
+	)
 
 	useEffect(
 		() => {
