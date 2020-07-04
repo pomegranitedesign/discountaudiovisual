@@ -14,25 +14,28 @@ const Companies = (props) => {
 			<ul>
 				<div>
 					<li>
-						<img src={aramarkLogo} />
+						<img src={aramarkLogo} alt="Discount Audio Visual" />
 					</li>
 					<li>
-						<img src={canadianTireLogo} />
+						<img
+							src={canadianTireLogo}
+							alt="Discount Audio Visual"
+						/>
 					</li>
 					<li>
-						<img src={tdLogo} />
+						<img src={tdLogo} alt="Discount Audio Visual" />
 					</li>
 				</div>
 
 				<div>
 					<li>
-						<img src={chanelLogo} />
+						<img src={chanelLogo} alt="Discount Audio Visual" />
 					</li>
 					<li>
-						<img src={fordLogo} />
+						<img src={fordLogo} alt="Discount Audio Visual" />
 					</li>
 					<li>
-						<img src={scotiaBankLogo} />
+						<img src={scotiaBankLogo} alt="Discount Audio Visual" />
 					</li>
 				</div>
 			</ul>

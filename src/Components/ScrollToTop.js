@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { withRouter } from 'react-router-dom'
 import { ArrowUpOutlined } from '@ant-design/icons'
 import styled from 'styled-components'
 
 const ScrollToTop = (props) => {
 	const [ isShown, setShown ] = useState(false)
-	const listenToScroll = () => {
+	const listenToScroll = useCallback(() => {
 		const winScroll =
 			document.body.scrollTop || document.documentElement.scrollTop
 
@@ -31,17 +31,15 @@ const ScrollToTop = (props) => {
 			if (scrolled >= 0.14915693904020752) setShown(true)
 			else setShown(false)
 		}
-	}
-	useEffect(
-		() => {
-			window.addEventListener('scroll', listenToScroll)
+	})
 
-			return () => {
-				window.removeEventListener('scroll', listenToScroll)
-			}
-		},
-		[ listenToScroll ]
-	)
+	useEffect(() => {
+		window.addEventListener('scroll', listenToScroll)
+
+		return () => {
+			window.removeEventListener('scroll', listenToScroll)
+		}
+	}, [])
 	return isShown ? (
 		<Wrapper
 			onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
