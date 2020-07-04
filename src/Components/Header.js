@@ -1,18 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import logo from '../Assets/Images/logo.png'
 import Navigation from './Navigation'
-import video from '../Assets/Videos/hero_video.mp4'
+import video from '../Assets/Videos/hero_video_v3.mp4'
 
-const Header = () => {
+const Header = (props) => {
 	return (
 		<Wrapper>
 			<div className="video">
 				<video playsInline loop muted autoPlay src={video} />
 			</div>
 
-			<div>
+			<div className="content">
 				<Link to="/">
 					<Logo src={logo} alt="Logo" />
 				</Link>
@@ -22,13 +23,30 @@ const Header = () => {
 				Professional Audio Visual <br />
 				Equipment For Less
 			</Slogan>
+
+			{props.history.location.pathname === '/' ? (
+				<div
+					className="scrollDownContainer"
+					onClick={() =>
+						window.scrollTo({ top: 560, behavior: 'smooth' })}
+				>
+					<div className="chevronContainer">
+						<div className="chevron" />
+						<div className="chevron" />
+						<div className="chevron" />
+					</div>
+					<p className="text">Scroll down</p>
+				</div>
+			) : null}
 		</Wrapper>
 	)
 }
 
 const Wrapper = styled.header`
 	padding: 50px;
-	div {
+	padding-bottom: 0;
+
+	div.content {
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-end;
@@ -77,20 +95,21 @@ const Logo = styled.img`
 `
 
 const Slogan = styled.h1`
-	font-size: 3vw;
+	font-size: 3.6vw;
 	margin-top: 100px;
 	padding-bottom: 60px;
-	font-weight: 800;
+	font-weight: 700;
 	color: #ffffff;
 	z-index: 20 !important;
 	display: block;
 	z-index: 200;
+	letter-spacing: 2px;
 
 	@media screen and (max-width: 768px) {
-		font-size: 4vw;
+		font-size: 2vw;
 		margin-top: 20px;
 		text-align: center;
 	}
 `
 
-export default Header
+export default withRouter(Header)

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Cards from '../Components/Cards'
 import Container from '../Components/Container'
+import Companies from '../Components/Companies'
 
 const Main = () => {
 	return (
@@ -9,6 +10,7 @@ const Main = () => {
 			<Container>
 				<Cards />
 			</Container>
+			<Companies />
 		</Wrapper>
 	)
 }

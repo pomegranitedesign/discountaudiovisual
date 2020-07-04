@@ -17,14 +17,14 @@ const Navigation = () => {
 					</li>
 				</NavLink>
 
-				<NavLink to="/video-packages">
+				<NavLink to="/visual-packages">
 					<li
 						style={{
 							marginRight: '5%',
 							lineHeight: '0 !important'
 						}}
 					>
-						VIDEO
+						VISUAL
 					</li>
 				</NavLink>
 
@@ -54,13 +54,16 @@ const Wrapper = styled.nav`
 
 	ul {
 		width: 600px;
+		text-align: right;
 		li {
 			display: inline-block;
 			list-style: none;
 			color: #fff600;
 			padding: 10px;
+			text-align: right;
 			margin: 0;
 			border-radius: 3px;
+			font-weight: 600;
 			cursor: pointer;
 
 			&:hover {

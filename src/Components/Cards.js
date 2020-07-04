@@ -4,44 +4,12 @@ import Card from './Card'
 import styled from 'styled-components'
 import group1 from '../Assets/Images/equipment_1.png'
 import group2 from '../Assets/Images/equipment_2.png'
+import group3 from '../Assets/Images/equipment_3.png'
+import group4 from '../Assets/Images/equipment_4.png'
 
 const Cards = () => {
 	return (
-		<Wrapper>
-			{/* <Row>
-				<Col lg={12}>
-					<h1
-						style={{
-							textAlign: 'center',
-							background: '#000000',
-							padding: 5,
-							borderRadius: 50,
-							color: '#ffffff',
-							display: 'block',
-							width: 300,
-							margin: '0 auto 40px auto'
-						}}
-					>
-						Audio Packages
-					</h1>
-				</Col>
-				<Col lg={12}>
-					<h1
-						style={{
-							textAlign: 'center',
-							background: '#000000',
-							padding: 5,
-							borderRadius: 50,
-							color: '#ffffff',
-							display: 'block',
-							width: 300,
-							margin: '0 auto 40px auto'
-						}}
-					>
-						Video Packages
-					</h1>
-				</Col>
-			</Row> */}
+		<Wrapper className="staggerContainer">
 			<Row align="middle">
 				<Col lg={12} sm={24} xs={24}>
 					<Card
@@ -91,9 +59,9 @@ const Cards = () => {
 			<Row>
 				<Col lg={12} sm={24} xs={24}>
 					<Card
-						title="SMALL P.A. SYSTEM"
+						title="MEDIUM P.A. SYSTEM"
 						quantity="100-200"
-						image={group1}
+						image={group3}
 						description={[
 							'4 x Speakers with Stands',
 							'1 x Wireless Microphone',
@@ -137,7 +105,7 @@ const Cards = () => {
 				<Col lg={12} sm={24} xs={24}>
 					<Card
 						title="A LA CARTE Audio Equipment"
-						image={group1}
+						image={group4}
 						quantity="2-50"
 						description={[
 							'Wired Podium Microphone & Stand',

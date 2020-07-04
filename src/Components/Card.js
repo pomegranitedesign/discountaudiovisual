@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 import styled from 'styled-components'
 import Options from './Options'
 import { PlusOutlined, ShoppingCartOutlined } from '@ant-design/icons'
@@ -12,19 +12,39 @@ const Card = ({
 }) => {
 	const [ addToCartHovered, setAddToCartHovered ] = useState(false)
 	const [ viewCartHovered, setViewCardHovered ] = useState(false)
+	const [ showMoreClicked, setShowMore ] = useState(false)
 
 	return (
 		<Wrapper>
 			<Title>
 				{title}
-				<Quantity>{quantity} PEOPLE</Quantity>
+				{quantity ? <Quantity>{quantity} PEOPLE</Quantity> : null}
 			</Title>
 			<div>
 				<Image src={image} alt="Discount AV Equipment Image" />
 			</div>
 			<div>
 				<Description>
-					{description.map((item) => <li key={item}>{item}</li>)}
+					{description.length > 4 ? (
+						<Fragment>
+							{showMoreClicked ? (
+								description.map((item) => (
+									<li key={item}>{item}</li>
+								))
+							) : (
+								description
+									.slice(0, 2)
+									.map((item) => <li key={item}>{item}</li>)
+							)}
+							<ShowMoreButton
+								onClick={() => setShowMore(!showMoreClicked)}
+							>
+								{showMoreClicked ? 'Show Less' : 'Show More'}
+							</ShowMoreButton>
+						</Fragment>
+					) : (
+						description.map((item) => <li key={item}>{item}</li>)
+					)}
 				</Description>
 				<div style={{ width: 400, margin: '0 auto' }}>
 					<Options options={options} />
@@ -59,14 +79,18 @@ const Wrapper = styled.div`
 	margin-bottom: 50px;
 	text-align: center;
 	box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.5);
-	margin-left: 30px;
-	margin-right: 30px;
+	margin-left: 70px;
+	margin-right: 50px;
 	padding: 20px 0;
-	transition: all 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
+
+	border-radius: 3px;
+	max-width: 600px;
+	min-width: 500px;
+	min-height: 600px;
 	cursor: pointer;
 
 	&:hover {
-		transform: scale(1.05);
+		transform: scale(1.05) !important;
 	}
 
 	@media screen and (max-width: 992px) {
@@ -163,6 +187,24 @@ const Image = styled.img`
 		width: 150px;
 		margin: 0 auto;
 		display: block;
+	}
+`
+
+const ShowMoreButton = styled.button`
+	width: 150px;
+	padding: 5px;
+	margin-top: 20px;
+	border-radius: 3px;
+	border: none;
+	background: lightgray;
+	cursor: pointer;
+	outline: none;
+	color: #000000;
+	background: #fff600;
+
+	&:hover {
+		background: #000000;
+		color: #fff600;
 	}
 `
 
