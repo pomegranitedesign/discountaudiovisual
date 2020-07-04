@@ -3,63 +3,30 @@ import styled from 'styled-components'
 import { Menu, Dropdown } from 'antd'
 import { DownOutlined } from '@ant-design/icons'
 
-const Options = () => {
-	const [ currentChoice, setCurrentChoice ] = useState(
-		'1 Day Rental $275.00 CAD'
-	)
+const Options = ({ options = [] }) => {
+	const [ currentChoice, setCurrentChoice ] = useState(options[0])
 	const menu = () => (
 		<Menu className="menu" style={{ backgroundColor: '#000000' }}>
-			<Menu.Item
-				style={{ color: '#fff660' }}
-				onClick={() => setCurrentChoice('1 Day Rental $275.00 CAD')}
-				key="1_day"
-			>
-				1 Day Rental $275.00 CAD
-			</Menu.Item>
-			<Menu.Item
-				style={{ color: '#fff660' }}
-				onClick={() => setCurrentChoice('2 Day Rental $467.50 CAD')}
-				key="2_day"
-			>
-				2 Day Rental $467.50 CAD
-			</Menu.Item>
-			<Menu.Item
-				style={{ color: '#fff660' }}
-				onClick={() => setCurrentChoice('3 Day Rental $618.75 CAD')}
-				key="3_day"
-			>
-				3 Day Rental $618.75 CAD
-			</Menu.Item>
-			<Menu.Item
-				style={{ color: '#fff660' }}
-				onClick={() =>
-					setCurrentChoice('1 Day Rental with Delivery $525.00 CAD')}
-				key="1_day_delivery"
-			>
-				1 Day Rental with Delivery $525.00 CAD
-			</Menu.Item>
-			<Menu.Item
-				style={{ color: '#fff660' }}
-				onClick={() =>
-					setCurrentChoice('2 Day Rental with Delivery $717.50 CAD')}
-				key="2_day_delivery"
-			>
-				2 Day Rental with Delivery $717.50 CAD
-			</Menu.Item>
-			<Menu.Item
-				style={{ color: '#fff660' }}
-				onClick={() =>
-					setCurrentChoice('3 Day Rental with Delivery $868.75 CAD')}
-				key="3_day_delivery"
-			>
-				3 Day Rental with Delivery $868.75 CAD
-			</Menu.Item>
+			{options.map((option) => (
+				<Menu.Item
+					style={{ color: '#fff660' }}
+					onClick={() => setCurrentChoice(option)}
+					key="1_day"
+				>
+					{option}
+				</Menu.Item>
+			))}
 		</Menu>
 	)
 	return (
 		<Wrapper>
 			<h2>Options</h2>
-			<Dropdown overlay={menu} trigger={[ 'click' ]} className="collapse">
+			<Dropdown
+				overlayClassName="dropdownOverlay"
+				overlay={menu}
+				trigger={[ 'click' ]}
+				className="collapse"
+			>
 				<Choice
 					className="ant-dropdown-link"
 					onClick={(e) => e.preventDefault()}
@@ -72,17 +39,22 @@ const Options = () => {
 }
 
 const Wrapper = styled.div`
-	margin-bottom: 20px;
-	min-width: 250px;
+	min-width: 400px;
+	display: block;
 	h2 {
+		font-size: 1.2vw;
+		font-weight: 400;
 		margin-bottom: 10px;
-		font-size: 0.8vw;
 
 		@media screen and (max-width: 768px) {
-			font-size: 15px;
 			text-align: center;
+			font-size: 16px;
 		}
 	}
+
+	.dropdownOverlay {
+	}
+
 	.collapse {
 		background: transparent;
 		padding: 10px;
@@ -95,6 +67,7 @@ const Wrapper = styled.div`
 			margin: 0 auto;
 			display: block;
 			text-align: center;
+			width: 250px;
 
 			.menu {
 				margin: 0 auto;

@@ -3,22 +3,32 @@ import styled from 'styled-components'
 import Options from './Options'
 import { PlusOutlined, ShoppingCartOutlined } from '@ant-design/icons'
 
-const Card = ({ title, quantity, description = [], image = '' }) => {
+const Card = ({
+	title,
+	quantity,
+	description = [],
+	image = '',
+	options = []
+}) => {
 	const [ addToCartHovered, setAddToCartHovered ] = useState(false)
 	const [ viewCartHovered, setViewCardHovered ] = useState(false)
 
 	return (
 		<Wrapper>
+			<Title>
+				{title}
+				<Quantity>{quantity} PEOPLE</Quantity>
+			</Title>
 			<div>
 				<Image src={image} alt="Discount AV Equipment Image" />
 			</div>
-			<div style={{ maxWidth: 400 }}>
-				<Title>{title}</Title>
-				<Quantity>{quantity} PEOPLE</Quantity>
+			<div>
 				<Description>
 					{description.map((item) => <li key={item}>{item}</li>)}
 				</Description>
-				<Options />
+				<div style={{ width: 400, margin: '0 auto' }}>
+					<Options options={options} />
+				</div>
 				<Buttons isHovered={addToCartHovered}>
 					<Button
 						onMouseOver={() => setAddToCartHovered(true)}
@@ -34,9 +44,7 @@ const Card = ({ title, quantity, description = [], image = '' }) => {
 						className="viewCart"
 					>
 						{viewCartHovered ? (
-							<ShoppingCartOutlined
-								style={{ fontSize: 18, paddingTop: 3 }}
-							/>
+							<ShoppingCartOutlined style={{ fontSize: 18 }} />
 						) : (
 							'View Cart'
 						)}
@@ -48,10 +56,18 @@ const Card = ({ title, quantity, description = [], image = '' }) => {
 }
 
 const Wrapper = styled.div`
-	display: flex;
-	align-items: flex-start;
 	margin-bottom: 50px;
-	max-width: 250px;
+	text-align: center;
+	box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.5);
+	margin-left: 30px;
+	margin-right: 30px;
+	padding: 20px 0;
+	transition: all 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
+	cursor: pointer;
+
+	&:hover {
+		transform: scale(1.05);
+	}
 
 	@media screen and (max-width: 992px) {
 		flex-direction: column;
@@ -64,10 +80,10 @@ const Wrapper = styled.div`
 const Title = styled.h1`
 	padding: 0;
 	margin: 0;
-	font-size: 1vw;
-	min-width: 450px;
+	font-size: 1.3vw;
 	font-weight: 800;
-
+	text-transform: uppercase;
+	margin-bottom: 30px;
 	@media screen and (max-width: 992px) {
 		margin-top: 10px;
 		font-size: 2vw;
@@ -82,9 +98,10 @@ const Title = styled.h1`
 const Quantity = styled.h1`
 	padding: 0;
 	margin: 0;
-	font-size: 1vw;
-	font-weight: 600;
-	margin-bottom: 34px;
+	font-size: 1.3vw;
+	font-weight: 400;
+	display: inline;
+	padding-left: 10px;
 
 	@media screen and (max-width: 992px) {
 		font-size: 1.4vw;
@@ -117,6 +134,8 @@ const Description = styled.ul`
 const Buttons = styled.div`margin-top: 40px;`
 
 const Button = styled.button`
+	margin: 0 auto;
+
 	padding: 10px;
 	display: block;
 	border-radius: 50px;
@@ -137,8 +156,9 @@ const Button = styled.button`
 
 const Image = styled.img`
 	width: 15vw;
-	margin-right: 30px;
+	margin: 0 auto;
 	display: block;
+	margin-bottom: 30px;
 	@media screen and (max-width: 768px) {
 		width: 150px;
 		margin: 0 auto;

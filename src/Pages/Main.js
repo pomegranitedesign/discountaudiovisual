@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 	background-color: #fff600;
 	z-index: 30;
 	position: relative;
-	padding-top: 95px;
+	padding-top: 60px;
 `
 
 export default Main

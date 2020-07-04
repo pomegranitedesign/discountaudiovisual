@@ -7,10 +7,10 @@ import 'antd/dist/antd.min.css'
 import './index.css'
 
 render(
-  <Router>
-    <Layout>
-      <Routes />
-    </Layout>
-  </Router>,
-  document.getElementById('root')
+	<Router>
+		<Layout>
+			<Routes />
+		</Layout>
+	</Router>,
+	document.getElementById('root')
 )
