@@ -10,7 +10,13 @@ const Header = (props) => {
 	return (
 		<Wrapper>
 			<div className="video">
-				<video playsInline loop muted autoPlay src={video} />
+				<video
+					playsInline
+					loop
+					muted
+					autoPlay
+					src="https://res.cloudinary.com/dtuu0mnxw/video/upload/v1593901652/hero_video_v.3_cwa8xl.mp4"
+				/>
 			</div>
 
 			<div className="content">
