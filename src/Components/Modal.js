@@ -29,8 +29,7 @@ const Modal = ({ children, toggle }) => {
 
 const Wrapper = styled(animated.div)`
   position: fixed;
-  min-width: 300px;
-  padding: 30px;
+  min-width: 400px;
   border-radius: 5px;
   background: #fff600;
   top: 50%;

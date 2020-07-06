@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { animated, useSpring } from 'react-spring'
 import { Table } from 'antd'
 import { CloseOutlined } from '@ant-design/icons'
+import { connect } from 'react-redux'
 import Modal from './Modal'
 import testingImage from '../Assets/Images/equipment_3.png'
 
@@ -32,8 +33,8 @@ const _columns = [
 	{
 		title: 'Price',
 		dataIndex: 'price',
-		key: 'price',
-		render: (price) => <p>${price.toFixed(2)}</p>
+		key: 'price'
+		// render: (price) => <p>${price.toFixed(2)}</p>
 	},
 	{
 		title: '',
@@ -42,22 +43,7 @@ const _columns = [
 	}
 ]
 
-const _testData = [
-	{
-		image: testingImage,
-		package: 'SMALL P.A. SYSTEM',
-		option: '1 Day Rental with Delivery',
-		price: 270.0
-	},
-	{
-		image: testingImage,
-		package: 'MEDIUM P.A. SYSTEM',
-		option: '2 Day Rental with Delivery',
-		price: 375.0
-	}
-]
-
-const ShoppingCart = ({ toggle }) => {
+const ShoppingCart = ({ toggle, state }) => {
 	const props = useSpring({
 		opacity: 1,
 		from: { opacity: 0 }
@@ -68,7 +54,7 @@ const ShoppingCart = ({ toggle }) => {
 				<Table
 					pagination={{ hideOnSinglePage: true }}
 					columns={_columns}
-					dataSource={_testData}
+					dataSource={state.state.order}
 					rowClassName="customTableRow"
 				/>
 			</Modal>
@@ -112,4 +98,7 @@ const CloseOutlinedStyled = styled(CloseOutlined)`
 	}
 `
 
-export default ShoppingCart
+// REDUX
+const mapStateToProps = (state) => ({ state })
+
+export default connect(mapStateToProps, null)(ShoppingCart)

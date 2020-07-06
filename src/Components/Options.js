@@ -13,14 +13,14 @@ const Options = ({ options = [], setSelectedPackage }) => {
 	)
 	const menu = () => (
 		<Menu className="menu" style={{ backgroundColor: '#000000' }}>
-			{options.map((option) => (
+			{options.map((option, i) => (
 				<Menu.Item
 					style={{ color: '#fff660' }}
 					onClick={() => {
 						setSelectedPackage(option)
 						setCurrentChoice(option)
 					}}
-					key="1_day"
+					key={i}
 				>
 					{option}
 				</Menu.Item>

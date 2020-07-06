@@ -17,7 +17,7 @@ const Header = (props) => {
           loop
           muted
           autoPlay
-          src='https://res.cloudinary.com/dtuu0mnxw/video/upload/v1593996557/hero_video_4k_uojiow.mp4'
+          src='https://res.cloudinary.com/dtuu0mnxw/video/upload/v1594006305/hero_video_4K_v.1_omgeep.mp4'
         />
       </div>
 
@@ -62,7 +62,7 @@ const Header = (props) => {
         <div
           className='scrollDownContainer'
           onClick={() =>
-            window.scrollTo({ top: 560, behavior: 'smooth' })}
+            window.scrollTo({ top: 600, behavior: 'smooth' })}
         >
           <div className='chevronContainer'>
             <div className='chevron' />
@@ -79,7 +79,7 @@ const Header = (props) => {
 const Wrapper = styled.header`
 	padding: 50px;
 	padding-bottom: 0;
-	height: 600px;
+  height: 600px;
 
 	div.content {
 		display: flex;
