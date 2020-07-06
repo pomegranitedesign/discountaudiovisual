@@ -18,15 +18,14 @@ const Card = ({
   const [addToCartHovered, setAddToCartHovered] = useState(false)
   const [viewCartHovered, setViewCardHovered] = useState(false)
   const [showMoreClicked, setShowMore] = useState(false)
-  const [_, setPickedDate] = useState('')
+  const [pickedDate, setPickedDate] = useState('')
   const [selectedPackage, setSelectedPackage] = useState('')
 
   const handleAddToCart = () => {
     const splitted = selectedPackage.split(' ')
     const price = splitted.slice(splitted.length - 1)
-    const _ = ''
 
-    console.log(price)
+    console.log(price, pickedDate)
   }
 
   return (

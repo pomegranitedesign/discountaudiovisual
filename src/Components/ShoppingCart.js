@@ -11,7 +11,13 @@ const _columns = [
 		title: '',
 		dataIndex: 'image',
 		key: 'image',
-		render: () => <img src={testingImage} style={{ width: 70 }} />
+		render: () => (
+			<img
+				src={testingImage}
+				alt="Discount Audio Visual"
+				style={{ width: 70 }}
+			/>
+		)
 	},
 	{
 		title: 'Package',
