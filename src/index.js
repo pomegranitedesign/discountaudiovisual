@@ -13,12 +13,12 @@ import './index.css'
 const store = createStore(rootReducer, composeWithDevTools())
 
 render(
-	<Router>
-		<Layout>
-			<Provider store={store}>
-				<Routes />
-			</Provider>
-		</Layout>
-	</Router>,
-	document.getElementById('root')
+  <Router>
+    <Layout>
+      <Provider store={store}>
+        <Routes />
+      </Provider>
+    </Layout>
+  </Router>,
+  document.getElementById('root')
 )

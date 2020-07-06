@@ -5,14 +5,14 @@ import Container from '../Components/Container'
 import Companies from '../Components/Companies'
 
 const Main = () => {
-	return (
-		<Wrapper>
-			<Container>
-				<Cards />
-			</Container>
-			<Companies />
-		</Wrapper>
-	)
+  return (
+    <Wrapper>
+      <Container>
+        <Cards />
+      </Container>
+      <Companies />
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.div`

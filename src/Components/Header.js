@@ -1,79 +1,79 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import { ShoppingCartOutlined } from '@ant-design/icons'
-import { Link } from 'react-router-dom'
-import { withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
+
 import logo from '../Assets/Images/logo2.png'
 import Navigation from './Navigation'
 import ShoppingCart from './ShoppingCart'
 import Toggle from './Toggle'
 
 const Header = (props) => {
-	return (
-		<Wrapper>
-			<div className="video">
-				<video
-					playsInline
-					loop
-					muted
-					autoPlay
-					src="https://res.cloudinary.com/dtuu0mnxw/video/upload/v1593901652/hero_video_v.3_cwa8xl.mp4"
-				/>
-			</div>
+  return (
+    <Wrapper>
+      <div className='video'>
+        <video
+          playsInline
+          loop
+          muted
+          autoPlay
+          src='https://res.cloudinary.com/dtuu0mnxw/video/upload/v1593901652/hero_video_v.3_cwa8xl.mp4'
+        />
+      </div>
 
-			<div className="content">
-				<Link to="/">
-					<Logo src={logo} alt="Logo" />
-				</Link>
-				<Navigation />
+      <div className='content'>
+        <Link to='/'>
+          <Logo src={logo} alt='Logo' />
+        </Link>
+        <Navigation />
 
-				<Toggle>
-					{({ on, toggle }) =>
-						on ? (
-							<Fragment>
-								<ShoppingCartOutlined
-									onClick={toggle}
-									style={{
-										cursor: 'pointer',
-										color: '#ffffff',
-										fontSize: 30
-									}}
-								/>
-								<ShoppingCart toggle={toggle} />
-							</Fragment>
-						) : (
-							<ShoppingCartOutlined
-								onClick={toggle}
-								style={{
-									cursor: 'pointer',
-									color: '#ffffff',
-									fontSize: 30
-								}}
-							/>
-						)}
-				</Toggle>
-			</div>
-			<Slogan>
+        <Toggle>
+          {({ on, toggle }) =>
+            on ? (
+              <>
+                <ShoppingCartOutlined
+                  onClick={toggle}
+                  style={{
+                    cursor: 'pointer',
+                    color: '#ffffff',
+                    fontSize: 30
+                  }}
+                />
+                <ShoppingCart toggle={toggle} />
+              </>
+            ) : (
+              <ShoppingCartOutlined
+                onClick={toggle}
+                style={{
+                  cursor: 'pointer',
+                  color: '#ffffff',
+                  fontSize: 30
+                }}
+              />
+            )}
+        </Toggle>
+      </div>
+      <Slogan>
 				Professional Audio Visual <br />
 				Equipment For Less
-			</Slogan>
+      </Slogan>
 
-			{props.history.location.pathname === '/' ? (
-				<div
-					className="scrollDownContainer"
-					onClick={() =>
-						window.scrollTo({ top: 560, behavior: 'smooth' })}
-				>
-					<div className="chevronContainer">
-						<div className="chevron" />
-						<div className="chevron" />
-						<div className="chevron" />
-					</div>
-					<p className="text">Scroll down</p>
-				</div>
-			) : null}
-		</Wrapper>
-	)
+      {props.history.location.pathname === '/' ? (
+        <div
+          className='scrollDownContainer'
+          onClick={() =>
+            window.scrollTo({ top: 560, behavior: 'smooth' })}
+        >
+          <div className='chevronContainer'>
+            <div className='chevron' />
+            <div className='chevron' />
+            <div className='chevron' />
+          </div>
+          <p className='text'>Scroll down</p>
+        </div>
+      ) : null}
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.header`

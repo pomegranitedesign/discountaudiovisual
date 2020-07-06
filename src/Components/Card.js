@@ -8,98 +8,98 @@ import { addToCart } from '../Redux/actions'
 import Options from './Options'
 
 const Card = ({
-	title,
-	quantity,
-	description = [],
-	image = '',
-	options = [],
-	style = {}
+  title,
+  quantity,
+  description = [],
+  image = '',
+  options = [],
+  style = {}
 }) => {
-	const [ addToCartHovered, setAddToCartHovered ] = useState(false)
-	const [ viewCartHovered, setViewCardHovered ] = useState(false)
-	const [ showMoreClicked, setShowMore ] = useState(false)
-	const [ pickedDate, setPickedDate ] = useState('')
-	const [ selectedPackage, setSelectedPackage ] = useState('')
+  const [addToCartHovered, setAddToCartHovered] = useState(false)
+  const [viewCartHovered, setViewCardHovered] = useState(false)
+  const [showMoreClicked, setShowMore] = useState(false)
+  const [pickedDate, setPickedDate] = useState('')
+  const [selectedPackage, setSelectedPackage] = useState('')
 
-	const handleAddToCart = () => {
-		const splitted = selectedPackage.split(' ')
-		const price = splitted.slice(splitted.length - 1)
-		const packageName = ''
+  const handleAddToCart = () => {
+    const splitted = selectedPackage.split(' ')
+    const price = splitted.slice(splitted.length - 1)
+    const packageName = ''
 
-		console.log(price)
-	}
+    console.log(price)
+  }
 
-	return (
-		<Wrapper style={{ ...style }}>
-			<Title>
-				{title}
-				{quantity ? <Quantity>{quantity} PEOPLE</Quantity> : null}
-			</Title>
-			<div>
-				<Image src={image} alt="Discount AV Equipment Image" />
-			</div>
-			<div>
-				<Description>
-					{description.length > 4 ? (
-						<Fragment>
-							{showMoreClicked ? (
-								description.map((item) => (
-									<li key={item}>{item}</li>
-								))
-							) : (
-								description
-									.slice(0, 2)
-									.map((item) => <li key={item}>{item}</li>)
-							)}
-							<ShowMoreButton
-								onClick={() => setShowMore(!showMoreClicked)}
-							>
-								{showMoreClicked ? 'Show Less' : 'Show More'}
-							</ShowMoreButton>
-						</Fragment>
-					) : (
-						description.map((item) => <li key={item}>{item}</li>)
-					)}
-				</Description>
-				<div style={{ width: 400, margin: '0 auto' }}>
-					<Options
-						options={options}
-						setSelectedPackage={setSelectedPackage}
-					/>
-					<DatePicker
-						showTime
-						style={{ marginTop: '30px' }}
-						onChange={(date) =>
-							setPickedDate(
-								moment(date).format('MMM DD, YYYY | HH:MM')
-							)}
-					/>
-				</div>
-				<Buttons isHovered={addToCartHovered}>
-					<Button
-						onMouseOver={() => setAddToCartHovered(true)}
-						onMouseLeave={() => setAddToCartHovered(false)}
-						isHovered={addToCartHovered}
-						onClick={handleAddToCart}
-					>
-						{addToCartHovered ? <PlusOutlined /> : 'Add to Cart'}
-					</Button>
+  return (
+    <Wrapper style={{ ...style }}>
+      <Title>
+        {title}
+        {quantity ? <Quantity>{quantity} PEOPLE</Quantity> : null}
+      </Title>
+      <div>
+        <Image src={image} alt='Discount AV Equipment Image' />
+      </div>
+      <div>
+        <Description>
+          {description.length > 4 ? (
+            <>
+              {showMoreClicked ? (
+                description.map((item) => (
+                  <li key={item}>{item}</li>
+                ))
+              ) : (
+                description
+                  .slice(0, 2)
+                  .map((item) => <li key={item}>{item}</li>)
+              )}
+              <ShowMoreButton
+                onClick={() => setShowMore(!showMoreClicked)}
+              >
+                {showMoreClicked ? 'Show Less' : 'Show More'}
+              </ShowMoreButton>
+            </>
+          ) : (
+            description.map((item) => <li key={item}>{item}</li>)
+          )}
+        </Description>
+        <div style={{ width: 400, margin: '0 auto' }}>
+          <Options
+            options={options}
+            setSelectedPackage={setSelectedPackage}
+          />
+          <DatePicker
+            showTime
+            style={{ marginTop: '30px' }}
+            onChange={(date) =>
+              setPickedDate(
+                moment(date).format('MMM DD, YYYY | HH:MM')
+            )}
+          />
+        </div>
+        <Buttons isHovered={addToCartHovered}>
+          <Button
+            onMouseOver={() => setAddToCartHovered(true)}
+            onMouseLeave={() => setAddToCartHovered(false)}
+            isHovered={addToCartHovered}
+            onClick={handleAddToCart}
+          >
+            {addToCartHovered ? <PlusOutlined /> : 'Add to Cart'}
+          </Button>
 
-					<Button
-						onMouseOver={() => setViewCardHovered(true)}
-						onMouseLeave={() => setViewCardHovered(false)}
-						className="viewCart"
-					>
-						{viewCartHovered ? (
-							<ShoppingCartOutlined style={{ fontSize: 18 }} />
-						) : (
-							'View Cart'
-						)}
-					</Button>
-				</Buttons>
-			</div>
-		</Wrapper>
-	)
+          <Button
+            onMouseOver={() => setViewCardHovered(true)}
+            onMouseLeave={() => setViewCardHovered(false)}
+            className='viewCart'
+          >
+            {viewCartHovered ? (
+              <ShoppingCartOutlined style={{ fontSize: 18 }} />
+            ) : (
+              'View Cart'
+            )}
+          </Button>
+        </Buttons>
+      </div>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.div`

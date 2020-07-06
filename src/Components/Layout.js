@@ -4,14 +4,14 @@ import ScrollToTop from './ScrollToTop'
 // import Footer from './Footer'
 
 const Layout = ({ children }) => {
-	return (
-		<div>
-			<Header />
-			{children}
-			<ScrollToTop />
-			{/* <Footer /> */}
-		</div>
-	)
+  return (
+    <div>
+      <Header />
+      {children}
+      <ScrollToTop />
+      {/* <Footer /> */}
+    </div>
+  )
 }
 
 export default Layout

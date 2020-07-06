@@ -7,69 +7,69 @@ import Modal from './Modal'
 import testingImage from '../Assets/Images/equipment_3.png'
 
 const _columns = [
-	{
-		title: '',
-		dataIndex: 'image',
-		key: 'image',
-		render: () => (
-			<img src={testingImage} alt="Testing Image" style={{ width: 70 }} />
-		)
-	},
-	{
-		title: 'Package',
-		dataIndex: 'package',
-		key: 'package'
-	},
-	{
-		title: 'Option',
-		dataIndex: 'option',
-		key: 'option'
-	},
-	{
-		title: 'Price',
-		dataIndex: 'price',
-		key: 'price',
-		render: (price) => <p>${price.toFixed(2)}</p>
-	},
-	{
-		title: '',
-		key: 'remove',
-		render: () => <CloseOutlinedStyled style={{ cursor: 'pointer' }} />
-	}
+  {
+    title: '',
+    dataIndex: 'image',
+    key: 'image',
+    render: () => (
+      <img src={testingImage} alt='Testing Image' style={{ width: 70 }} />
+    )
+  },
+  {
+    title: 'Package',
+    dataIndex: 'package',
+    key: 'package'
+  },
+  {
+    title: 'Option',
+    dataIndex: 'option',
+    key: 'option'
+  },
+  {
+    title: 'Price',
+    dataIndex: 'price',
+    key: 'price',
+    render: (price) => <p>${price.toFixed(2)}</p>
+  },
+  {
+    title: '',
+    key: 'remove',
+    render: () => <CloseOutlinedStyled style={{ cursor: 'pointer' }} />
+  }
 ]
 
 const _testData = [
-	{
-		image: testingImage,
-		package: 'SMALL P.A. SYSTEM',
-		option: '1 Day Rental with Delivery',
-		price: 270.0
-	},
-	{
-		image: testingImage,
-		package: 'MEDIUM P.A. SYSTEM',
-		option: '2 Day Rental with Delivery',
-		price: 375.0
-	}
+  {
+    image: testingImage,
+    package: 'SMALL P.A. SYSTEM',
+    option: '1 Day Rental with Delivery',
+    price: 270.0
+  },
+  {
+    image: testingImage,
+    package: 'MEDIUM P.A. SYSTEM',
+    option: '2 Day Rental with Delivery',
+    price: 375.0
+  }
 ]
 
 const ShoppingCart = ({ toggle }) => {
-	const props = useSpring({
-		opacity: 1,
-		from: { opacity: 0 }
-	})
-	return (
-		<Wrapper onClick={toggle} style={props}>
-			<Modal toggle={toggle}>
-				<Table
-					pagination={{ hideOnSinglePage: true }}
-					columns={_columns}
-					dataSource={_testData}
-					rowClassName="customTableRow"
-				/>
-			</Modal>
-		</Wrapper>
-	)
+  const props = useSpring({
+    opacity: 1,
+    from: { opacity: 0 }
+  })
+  return (
+    <Wrapper onClick={toggle} style={props}>
+      <Modal toggle={toggle}>
+        <Table
+          pagination={{ hideOnSinglePage: true }}
+          columns={_columns}
+          dataSource={_testData}
+          rowClassName='customTableRow'
+        />
+      </Modal>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled(animated.div)`

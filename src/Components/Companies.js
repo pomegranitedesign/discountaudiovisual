@@ -8,39 +8,39 @@ import scotiaBankLogo from '../Assets/Images/SCOTIABANK LOGO.png'
 import tdLogo from '../Assets/Images/TD BANK LOGO.png'
 
 const Companies = (props) => {
-	return (
-		<Wrapper>
-			<h1>Companies Who Trust Discount Audio Visual</h1>
-			<ul>
-				<div>
-					<li>
-						<img src={aramarkLogo} alt="Discount Audio Visual" />
-					</li>
-					<li>
-						<img
-							src={canadianTireLogo}
-							alt="Discount Audio Visual"
-						/>
-					</li>
-					<li>
-						<img src={tdLogo} alt="Discount Audio Visual" />
-					</li>
-				</div>
+  return (
+    <Wrapper>
+      <h1>Companies Who Trust Discount Audio Visual</h1>
+      <ul>
+        <div>
+          <li>
+            <img src={aramarkLogo} alt='Discount Audio Visual' />
+          </li>
+          <li>
+            <img
+              src={canadianTireLogo}
+              alt='Discount Audio Visual'
+            />
+          </li>
+          <li>
+            <img src={tdLogo} alt='Discount Audio Visual' />
+          </li>
+        </div>
 
-				<div>
-					<li>
-						<img src={chanelLogo} alt="Discount Audio Visual" />
-					</li>
-					<li>
-						<img src={fordLogo} alt="Discount Audio Visual" />
-					</li>
-					<li>
-						<img src={scotiaBankLogo} alt="Discount Audio Visual" />
-					</li>
-				</div>
-			</ul>
-		</Wrapper>
-	)
+        <div>
+          <li>
+            <img src={chanelLogo} alt='Discount Audio Visual' />
+          </li>
+          <li>
+            <img src={fordLogo} alt='Discount Audio Visual' />
+          </li>
+          <li>
+            <img src={scotiaBankLogo} alt='Discount Audio Visual' />
+          </li>
+        </div>
+      </ul>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.div`

@@ -3,30 +3,30 @@ import styled from 'styled-components'
 import { useTransition, animated } from 'react-spring'
 import { CloseOutlined } from '@ant-design/icons'
 
-const _items = [ 1 ]
+const _items = [1]
 
 const Modal = ({ children, toggle }) => {
-	const transitions = useTransition(_items, (item) => item, {
-		from: { opacity: 0, height: '0px' },
-		enter: { opacity: 1, height: '400px' },
-		leave: { opacity: 0, height: '0px' }
-	})
-	return transitions.map(({ item, props, key }) => (
-		<Wrapper key={key} style={props} onClick={toggle}>
-			<CloseOutlinedStyled
-				onClick={toggle}
-				style={{
-					position: 'absolute',
-					top: 0,
-					right: 0,
-					top: 30,
-					right: 30,
-					cursor: 'pointer'
-				}}
-			/>
-			{children}
-		</Wrapper>
-	))
+  const transitions = useTransition(_items, (item) => item, {
+    from: { opacity: 0, height: '0px' },
+    enter: { opacity: 1, height: '400px' },
+    leave: { opacity: 0, height: '0px' }
+  })
+  return transitions.map(({ item, props, key }) => (
+    <Wrapper key={key} style={props} onClick={toggle}>
+      <CloseOutlinedStyled
+        onClick={toggle}
+        style={{
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          top: 30,
+          right: 30,
+          cursor: 'pointer'
+        }}
+      />
+      {children}
+    </Wrapper>
+  ))
 }
 
 const Wrapper = styled(animated.div)`

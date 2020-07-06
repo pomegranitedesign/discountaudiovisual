@@ -4,55 +4,55 @@ import { ArrowUpOutlined } from '@ant-design/icons'
 import styled from 'styled-components'
 
 const ScrollToTop = (props) => {
-	const [ isShown, setShown ] = useState(false)
-	const listenToScroll = useCallback(
-		() => {
-			const winScroll =
+  const [isShown, setShown] = useState(false)
+  const listenToScroll = useCallback(
+    () => {
+      const winScroll =
 				document.body.scrollTop || document.documentElement.scrollTop
 
-			const height =
+      const height =
 				document.documentElement.scrollHeight -
 				document.documentElement.clientHeight
 
-			const scrolled = winScroll / height
+      const scrolled = winScroll / height
 
-			const pathname = props.history.location.pathname
-			if (pathname === '/') {
-				if (scrolled >= 0.1846356742499176) setShown(true)
-				else setShown(false)
-			}
+      const pathname = props.history.location.pathname
+      if (pathname === '/') {
+        if (scrolled >= 0.1846356742499176) setShown(true)
+        else setShown(false)
+      }
 
-			if (pathname === '/audio-packages') {
-				if (scrolled >= 0.3091849935316947) setShown(true)
-				else setShown(false)
-			}
+      if (pathname === '/audio-packages') {
+        if (scrolled >= 0.3091849935316947) setShown(true)
+        else setShown(false)
+      }
 
-			if (pathname === '/visual-packages') {
-				if (scrolled >= 0.14915693904020752) setShown(true)
-				else setShown(false)
-			}
-		},
-		[ props.history.location.pathname ]
-	)
+      if (pathname === '/visual-packages') {
+        if (scrolled >= 0.14915693904020752) setShown(true)
+        else setShown(false)
+      }
+    },
+    [props.history.location.pathname]
+  )
 
-	useEffect(
-		() => {
-			window.addEventListener('scroll', listenToScroll)
+  useEffect(
+    () => {
+      window.addEventListener('scroll', listenToScroll)
 
-			return () => {
-				window.removeEventListener('scroll', listenToScroll)
-			}
-		},
-		[ listenToScroll ]
-	)
-	return isShown ? (
-		<Wrapper
-			onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-		>
-			<ArrowUpOutlined />
-			<p>Back to Top</p>
-		</Wrapper>
-	) : null
+      return () => {
+        window.removeEventListener('scroll', listenToScroll)
+      }
+    },
+    [listenToScroll]
+  )
+  return isShown ? (
+    <Wrapper
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+    >
+      <ArrowUpOutlined />
+      <p>Back to Top</p>
+    </Wrapper>
+  ) : null
 }
 
 const Wrapper = styled.div`
