@@ -17,7 +17,7 @@ const Header = (props) => {
           loop
           muted
           autoPlay
-          src='https://res.cloudinary.com/dtuu0mnxw/video/upload/v1593901652/hero_video_v.3_cwa8xl.mp4'
+          src='https://res.cloudinary.com/dtuu0mnxw/video/upload/v1593996557/hero_video_4k_uojiow.mp4'
         />
       </div>
 
