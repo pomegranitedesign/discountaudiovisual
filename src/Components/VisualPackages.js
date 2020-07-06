@@ -3,9 +3,13 @@ import { Row, Col } from 'antd'
 import styled from 'styled-components'
 import Card from './Card'
 import Container from './Container'
-import group1 from '../Assets/Images/equipment_1.png'
-import group2 from '../Assets/Images/equipment_3.png'
+import group1 from '../Assets/Images/equipment_2.png'
+import group2 from '../Assets/Images/MEDIUM PRESENTATION PACKAGE.png'
 import group3 from '../Assets/Images/equipment_4.png'
+import fifty from '../Assets/Images/50" LED MONITOR PACKAGE.png'
+import sixtyFive from '../Assets/Images/65" LED MONITOR PACKAGE.png'
+import eighty from '../Assets/Images/80" LED MONITOR PACKAGE.png'
+import alacarte from '../Assets/Images/A LA CARTE VISUAL EQUIPMENT.png'
 
 const AudioPackages = () => {
 	return (
@@ -14,7 +18,7 @@ const AudioPackages = () => {
 				<Row align="middle">
 					<Col lg={12} sm={24} xs={24}>
 						<Card
-							title="Small Presentation Package"
+							title="LCD Projection Package"
 							quantity="10-50"
 							image={group1}
 							description={[
@@ -36,14 +40,14 @@ const AudioPackages = () => {
 
 					<Col lg={12} sm={24} xs={24}>
 						<Card
-							title="MEDIUM P.A. SYSTEM"
+							title="LCD Projection Package"
 							quantity="100-200"
 							image={group2}
 							description={[
-								'4 x Speakers with Stands',
-								'1 x Wireless Microphone',
-								'1 x Mixing Console',
-								'Patch for Laptop or Phone'
+								'1 x 8’ Tripod Screen – c/w: Black Skirting',
+								'1 x Classroom LCD Projector – HD',
+								'1 x PPT Wireless Advancer',
+								'1 x Projector Stand/Cart – c/w: Black Skirting'
 							]}
 							options={[
 								'1 Day Rental $350.00 CAD',
@@ -61,7 +65,7 @@ const AudioPackages = () => {
 					<Col lg={12} sm={24} xs={24}>
 						<Card
 							title="50” LED Monitor Package"
-							image={group3}
+							image={fifty}
 							quantity="10-50"
 							description={[
 								'50” LED Monitor',
@@ -82,7 +86,7 @@ const AudioPackages = () => {
 						<Card
 							title="65” LED Monitor Package"
 							quantity="50-100"
-							image={group1}
+							image={sixtyFive}
 							description={[
 								'65” LED Monitor',
 								'Dual Post Stand'
@@ -103,7 +107,7 @@ const AudioPackages = () => {
 					<Col lg={12} sm={24} xs={24}>
 						<Card
 							title="80” LED Monitor Package"
-							image={group3}
+							image={eighty}
 							quantity="100-500"
 							description={[
 								'80” LED Monitor',
@@ -123,7 +127,7 @@ const AudioPackages = () => {
 					<Col lg={12} sm={24} xs={24}>
 						<Card
 							title="A la Carte Visual Equipment"
-							image={group1}
+							image={alacarte}
 							description={[
 								'PC Laptop or Mac Computer – c/w: PPT',
 								'Data Switcher for Multiple Laptops',

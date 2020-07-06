@@ -6,6 +6,8 @@ import group1 from '../Assets/Images/equipment_1.png'
 import group2 from '../Assets/Images/equipment_2.png'
 import group3 from '../Assets/Images/equipment_3.png'
 import group4 from '../Assets/Images/equipment_4.png'
+import MEDIUM_PRESENTATION from '../Assets/Images/MEDIUM PRESENTATION PACKAGE.png'
+import fifty from '../Assets/Images/50" LED MONITOR PACKAGE.png'
 
 const Cards = () => {
 	return (
@@ -16,6 +18,11 @@ const Cards = () => {
 						title="SMALL P.A. SYSTEM"
 						quantity="50-100"
 						image={group1}
+						style={{
+							marginTop: '-200px',
+							backgroundColor: '#fff600',
+							zIndex: 3000
+						}}
 						description={[
 							'2 x Speakers with Stands',
 							'1 x Wireless Microphone',
@@ -37,7 +44,12 @@ const Cards = () => {
 					<Card
 						title="LCD Projection Package"
 						quantity="10-50"
-						image={group2}
+						image={MEDIUM_PRESENTATION}
+						style={{
+							marginTop: '-200px',
+							backgroundColor: '#fff600',
+							zIndex: 3000
+						}}
 						description={[
 							'1 x 6’ Tripod Screen – c/w: Black Skirting',
 							'1 x Boardroom LCD Projector – HD',
@@ -124,7 +136,7 @@ const Cards = () => {
 					<Card
 						title="50&quot; LED Monitor Package"
 						quantity="10-50"
-						image={group2}
+						image={fifty}
 						description={[ '50” LED Monitor', 'Dual Post Stand' ]}
 						options={[
 							'1 Day Rental $250.00 CAD',

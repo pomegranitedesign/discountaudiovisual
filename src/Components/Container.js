@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export default styled.div`
-	max-width: 85%;
-	padding: 0px 10px;
-	margin: 0 auto;
+	max-width: 90%;
+	padding: 0;
+	margin: 0 auto !important;
 `

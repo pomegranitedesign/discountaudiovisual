@@ -54,13 +54,11 @@ const Wrapper = styled.nav`
 
 	ul {
 		width: 600px;
-		text-align: right;
 		li {
 			display: inline-block;
 			list-style: none;
 			color: #fff600;
 			padding: 10px;
-			text-align: right;
 			margin: 0;
 			border-radius: 3px;
 			font-weight: 600;

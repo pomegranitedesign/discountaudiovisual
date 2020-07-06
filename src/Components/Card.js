@@ -1,21 +1,36 @@
 import React, { useState, Fragment } from 'react'
 import styled from 'styled-components'
-import Options from './Options'
 import { PlusOutlined, ShoppingCartOutlined } from '@ant-design/icons'
+import { DatePicker } from 'antd'
+import { connect } from 'react-redux'
+import moment from 'moment'
+import { addToCart } from '../Redux/actions'
+import Options from './Options'
 
 const Card = ({
 	title,
 	quantity,
 	description = [],
 	image = '',
-	options = []
+	options = [],
+	style = {}
 }) => {
 	const [ addToCartHovered, setAddToCartHovered ] = useState(false)
 	const [ viewCartHovered, setViewCardHovered ] = useState(false)
 	const [ showMoreClicked, setShowMore ] = useState(false)
+	const [ pickedDate, setPickedDate ] = useState('')
+	const [ selectedPackage, setSelectedPackage ] = useState('')
+
+	const handleAddToCart = () => {
+		const splitted = selectedPackage.split(' ')
+		const price = splitted.slice(splitted.length - 1)
+		const packageName = ''
+
+		console.log(price)
+	}
 
 	return (
-		<Wrapper>
+		<Wrapper style={{ ...style }}>
 			<Title>
 				{title}
 				{quantity ? <Quantity>{quantity} PEOPLE</Quantity> : null}
@@ -47,13 +62,25 @@ const Card = ({
 					)}
 				</Description>
 				<div style={{ width: 400, margin: '0 auto' }}>
-					<Options options={options} />
+					<Options
+						options={options}
+						setSelectedPackage={setSelectedPackage}
+					/>
+					<DatePicker
+						showTime
+						style={{ marginTop: '30px' }}
+						onChange={(date) =>
+							setPickedDate(
+								moment(date).format('MMM DD, YYYY | HH:MM')
+							)}
+					/>
 				</div>
 				<Buttons isHovered={addToCartHovered}>
 					<Button
 						onMouseOver={() => setAddToCartHovered(true)}
 						onMouseLeave={() => setAddToCartHovered(false)}
 						isHovered={addToCartHovered}
+						onClick={handleAddToCart}
 					>
 						{addToCartHovered ? <PlusOutlined /> : 'Add to Cart'}
 					</Button>
@@ -76,17 +103,15 @@ const Card = ({
 }
 
 const Wrapper = styled.div`
-	margin-bottom: 50px;
 	text-align: center;
 	box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.5);
-	margin-left: 70px;
-	margin-right: 50px;
 	padding: 20px 0;
-
-	border-radius: 3px;
+	border-radius: 5px;
 	max-width: 600px;
-	min-width: 500px;
+	min-width: 400px;
 	min-height: 600px;
+	width: 500px;
+	margin: 0 auto 100px auto;
 	cursor: pointer;
 
 	&:hover {
@@ -179,7 +204,7 @@ const Button = styled.button`
 `
 
 const Image = styled.img`
-	width: 15vw;
+	width: 16vw;
 	margin: 0 auto;
 	display: block;
 	margin-bottom: 30px;
@@ -208,4 +233,7 @@ const ShowMoreButton = styled.button`
 	}
 `
 
-export default Card
+// REDUX
+const mapStateToProps = (state) => ({ state })
+
+export default connect(mapStateToProps, { addToCart })(Card)

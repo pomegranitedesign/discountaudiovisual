@@ -1,16 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Menu, Dropdown } from 'antd'
 import { DownOutlined } from '@ant-design/icons'
 
-const Options = ({ options = [] }) => {
+const Options = ({ options = [], setSelectedPackage }) => {
 	const [ currentChoice, setCurrentChoice ] = useState(options[0])
+	useEffect(
+		() => {
+			setSelectedPackage(currentChoice)
+		},
+		[ setSelectedPackage ]
+	)
 	const menu = () => (
 		<Menu className="menu" style={{ backgroundColor: '#000000' }}>
 			{options.map((option) => (
 				<Menu.Item
 					style={{ color: '#fff660' }}
-					onClick={() => setCurrentChoice(option)}
+					onClick={() => {
+						setSelectedPackage(option)
+						setCurrentChoice(option)
+					}}
 					key="1_day"
 				>
 					{option}

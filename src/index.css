@@ -21,6 +21,11 @@ ul {
 	margin-block-end: 0;
 }
 
+.ant-table-thead tr {
+	background: #fff600 !important;
+	color: white !important;
+}
+
 .ant-dropdown-menu-item-active:hover {
 	background-color: #fff600;
 	color: #000000 !important;

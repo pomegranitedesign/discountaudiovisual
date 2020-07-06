@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
+import { ShoppingCartOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
-import logo from '../Assets/Images/logo.png'
+import logo from '../Assets/Images/logo2.png'
 import Navigation from './Navigation'
-import video from '../Assets/Videos/hero_video_v3.mp4'
+import ShoppingCart from './ShoppingCart'
+import Toggle from './Toggle'
 
 const Header = (props) => {
 	return (
@@ -24,6 +26,32 @@ const Header = (props) => {
 					<Logo src={logo} alt="Logo" />
 				</Link>
 				<Navigation />
+
+				<Toggle>
+					{({ on, toggle }) =>
+						on ? (
+							<Fragment>
+								<ShoppingCartOutlined
+									onClick={toggle}
+									style={{
+										cursor: 'pointer',
+										color: '#ffffff',
+										fontSize: 30
+									}}
+								/>
+								<ShoppingCart toggle={toggle} />
+							</Fragment>
+						) : (
+							<ShoppingCartOutlined
+								onClick={toggle}
+								style={{
+									cursor: 'pointer',
+									color: '#ffffff',
+									fontSize: 30
+								}}
+							/>
+						)}
+				</Toggle>
 			</div>
 			<Slogan>
 				Professional Audio Visual <br />
@@ -51,11 +79,12 @@ const Header = (props) => {
 const Wrapper = styled.header`
 	padding: 50px;
 	padding-bottom: 0;
+	height: 600px;
 
 	div.content {
 		display: flex;
 		justify-content: space-between;
-		align-items: flex-end;
+		align-items: center;
 	}
 
 	.video {
@@ -97,12 +126,12 @@ const Wrapper = styled.header`
 
 const Logo = styled.img`
 	z-index: 20;
-	width: 100px;
+	width: 150px;
 `
 
 const Slogan = styled.h1`
-	font-size: 3.6vw;
-	margin-top: 100px;
+	font-size: 3.2vw;
+	margin-top: 60px;
 	padding-bottom: 60px;
 	font-weight: 700;
 	color: #ffffff;
@@ -110,6 +139,7 @@ const Slogan = styled.h1`
 	display: block;
 	z-index: 200;
 	letter-spacing: 2px;
+	text-align: center;
 
 	@media screen and (max-width: 768px) {
 		font-size: 2vw;

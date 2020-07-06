@@ -15,7 +15,6 @@ const ScrollToTop = (props) => {
 				document.documentElement.clientHeight
 
 			const scrolled = winScroll / height
-			console.log(scrolled)
 
 			const pathname = props.history.location.pathname
 			if (pathname === '/') {
