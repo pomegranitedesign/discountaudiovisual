@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { PlusOutlined, ShoppingCartOutlined } from '@ant-design/icons'
 import { DatePicker } from 'antd'
@@ -18,13 +18,13 @@ const Card = ({
   const [addToCartHovered, setAddToCartHovered] = useState(false)
   const [viewCartHovered, setViewCardHovered] = useState(false)
   const [showMoreClicked, setShowMore] = useState(false)
-  const [pickedDate, setPickedDate] = useState('')
+  const [_, setPickedDate] = useState('')
   const [selectedPackage, setSelectedPackage] = useState('')
 
   const handleAddToCart = () => {
     const splitted = selectedPackage.split(' ')
     const price = splitted.slice(splitted.length - 1)
-    const packageName = ''
+    const _ = ''
 
     console.log(price)
   }

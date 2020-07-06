@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { ShoppingCartOutlined } from '@ant-design/icons'
 import { Link, withRouter } from 'react-router-dom'
