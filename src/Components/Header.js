@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import { ShoppingCartOutlined } from '@ant-design/icons'
 import { Link, withRouter } from 'react-router-dom'
@@ -10,8 +10,8 @@ import Toggle from './Toggle'
 
 const Header = (props) => {
   return (
-    <Wrapper>
-      <div className='video'>
+    <Wrapper currentLocation={props.history.location.pathname}>
+      <Video>
         <video
           playsInline
           loop
@@ -19,7 +19,7 @@ const Header = (props) => {
           autoPlay
           src='https://res.cloudinary.com/dtuu0mnxw/video/upload/v1594006305/hero_video_4K_v.1_omgeep.mp4'
         />
-      </div>
+      </Video>
 
       <div className='content'>
         <Link to='/'>
@@ -46,7 +46,7 @@ const Header = (props) => {
                 onClick={toggle}
                 style={{
                   cursor: 'pointer',
-                  color: '#ffffff',
+                  color: '#fff600',
                   fontSize: 30
                 }}
               />
@@ -62,7 +62,7 @@ const Header = (props) => {
         <div
           className='scrollDownContainer'
           onClick={() =>
-            window.scrollTo({ top: 600, behavior: 'smooth' })}
+            window.scrollTo({ top: 650, behavior: 'smooth' })}
         >
           <div className='chevronContainer'>
             <div className='chevron' />
@@ -79,7 +79,7 @@ const Header = (props) => {
 const Wrapper = styled.header`
 	padding: 50px;
 	padding-bottom: 0;
-  height: 600px;
+	height: 600px;
 
 	div.content {
 		display: flex;
@@ -87,21 +87,31 @@ const Wrapper = styled.header`
 		align-items: center;
 	}
 
-	.video {
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: -1;
-		width: 100%;
-		height: 80%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+	z-index: 10 !important;
 
-		@media screen and (max-width: 992px) {
-			height: 100%;
-			width: 100%;
-		}
+	@media screen and (max-width: 992px) {
+		height: 200px;
+	}
+
+	@media screen and (min-width: 1220px) {
+		${(props) => props.currentLocation === '/' && 'height: 700px'};
+	}
+`
+
+const Video = styled.div`
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	height: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	@media screen and (max-width: 992px) {
+		height: 100%;
+		width: 100%;
 	}
 
 	video {
@@ -115,12 +125,6 @@ const Wrapper = styled.header`
 			width: 100%;
 			object-fit: fill !important;
 		}
-	}
-
-	z-index: 10 !important;
-
-	@media screen and (max-width: 992px) {
-		height: 200px;
 	}
 `
 
@@ -145,6 +149,10 @@ const Slogan = styled.h1`
 		font-size: 2vw;
 		margin-top: 20px;
 		text-align: center;
+	}
+
+	@media screen and (min-width: 1220px) {
+		margin-top: 120px !important;
 	}
 `
 

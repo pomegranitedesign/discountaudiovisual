@@ -142,6 +142,26 @@ ul {
 	animation-delay: 500ms;
 }
 
+.ant-notification-notice-message {
+	color: #fff600 !important;
+}
+
+.anticon-close.ant-notification-close-icon {
+	color: #fff600 !important;
+}
+
+.ant-picker-panel {
+	background: #000000 !important;
+}
+
+.ant-picker-time-panel-column * {
+	border: none;
+}
+
+.ant-picker-datetime-panel * {
+	color: #fff600 !important;
+}
+
 @keyframes fadeIn {
 	from {
 		opacity: 0;

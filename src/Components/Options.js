@@ -4,47 +4,47 @@ import { Menu, Dropdown } from 'antd'
 import { DownOutlined } from '@ant-design/icons'
 
 const Options = ({ options = [], setSelectedPackage }) => {
-	const [ currentChoice, setCurrentChoice ] = useState(options[0])
-	useEffect(
-		() => {
-			setSelectedPackage(currentChoice)
-		},
-		[ setSelectedPackage, currentChoice ]
-	)
-	const menu = () => (
-		<Menu className="menu" style={{ backgroundColor: '#000000' }}>
-			{options.map((option, i) => (
-				<Menu.Item
-					style={{ color: '#fff660' }}
-					onClick={() => {
-						setSelectedPackage(option)
-						setCurrentChoice(option)
-					}}
-					key={i}
-				>
-					{option}
-				</Menu.Item>
-			))}
-		</Menu>
-	)
-	return (
-		<Wrapper>
-			<h2>Options</h2>
-			<Dropdown
-				overlayClassName="dropdownOverlay"
-				overlay={menu}
-				trigger={[ 'click' ]}
-				className="collapse"
-			>
-				<Choice
-					className="ant-dropdown-link"
-					onClick={(e) => e.preventDefault()}
-				>
-					{currentChoice} <DownOutlined />
-				</Choice>
-			</Dropdown>
-		</Wrapper>
-	)
+  const [currentChoice, setCurrentChoice] = useState(options[0])
+  useEffect(
+    () => {
+      setSelectedPackage(currentChoice)
+    },
+    [setSelectedPackage, currentChoice]
+  )
+  const menu = () => (
+    <Menu className='menu' style={{ backgroundColor: '#000000' }}>
+      {options.map((option, i) => (
+        <Menu.Item
+          style={{ color: '#fff660' }}
+          onClick={() => {
+            setSelectedPackage(option)
+            setCurrentChoice(option)
+          }}
+          key={i}
+        >
+          {option}
+        </Menu.Item>
+      ))}
+    </Menu>
+  )
+  return (
+    <Wrapper>
+      <h2>Options</h2>
+      <Dropdown
+        overlayClassName='dropdownOverlay'
+        overlay={menu}
+        trigger={['click']}
+        className='collapse'
+      >
+        <Choice
+          className='ant-dropdown-link'
+          onClick={(e) => e.preventDefault()}
+        >
+          {currentChoice} <DownOutlined />
+        </Choice>
+      </Dropdown>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.div`

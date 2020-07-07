@@ -1,6 +1,6 @@
 import Main from './Main'
-import Audio from './Audio'
-import Visual from './Visual'
+import Packages from './Packages'
 import LiveStreaming from './LiveStreaming'
+import About from './About'
 import ContactUs from './ContactUs'
-export { Main, Audio, Visual, LiveStreaming, ContactUs }
+export { Main, Packages, LiveStreaming, ContactUs, About }

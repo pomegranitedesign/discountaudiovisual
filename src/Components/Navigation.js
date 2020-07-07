@@ -6,25 +6,25 @@ const Navigation = () => {
   return (
     <Wrapper>
       <ul>
-        <NavLink to='/audio-packages'>
+        <NavLink to='/about-us'>
           <li
             style={{
               marginRight: '5%',
               lineHeight: '0 !important'
             }}
           >
-						AUDIO
+						ABOUT
           </li>
         </NavLink>
 
-        <NavLink to='/visual-packages'>
+        <NavLink to='/packages'>
           <li
             style={{
               marginRight: '5%',
               lineHeight: '0 !important'
             }}
           >
-						VISUAL
+						AUDIO / VISUAL
           </li>
         </NavLink>
 
@@ -53,7 +53,7 @@ const Wrapper = styled.nav`
 	margin: 0;
 
 	ul {
-		width: 600px;
+		width: 700px;
 		li {
 			display: inline-block;
 			list-style: none;

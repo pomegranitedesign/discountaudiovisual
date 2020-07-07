@@ -3,16 +3,16 @@ import styled from 'styled-components'
 import VisualPackages from '../Components/VisualPackages'
 
 const Visual = (props) => {
-	useEffect(() => {
-		if (window.innerWidth >= 992) {
-			window.scrollTo({ top: 600, behavior: 'smooth' })
-		}
-	}, [])
-	return (
-		<Wrapper>
-			<VisualPackages />
-		</Wrapper>
-	)
+  useEffect(() => {
+    if (window.innerWidth >= 992) {
+      window.scrollTo({ top: 600, behavior: 'smooth' })
+    }
+  }, [])
+  return (
+    <Wrapper>
+      <VisualPackages />
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.div`

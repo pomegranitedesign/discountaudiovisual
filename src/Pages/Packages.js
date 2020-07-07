@@ -1,16 +1,14 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import AudioPackages from '../Components/AudioPackages'
+import PackageList from '../Components/PackageList'
 
-const Audio = (props) => {
+const Packages = (props) => {
   useEffect(() => {
-    if (window.innerWidth >= 992) {
-      window.scrollTo({ top: 600, behavior: 'smooth' })
-    }
+    if (window.innerWidth >= 992) { window.scrollTo({ top: 600, behavior: 'smooth' }) }
   }, [])
   return (
     <Wrapper>
-      <AudioPackages />
+      <PackageList />
     </Wrapper>
   )
 }
@@ -21,4 +19,4 @@ const Wrapper = styled.div`
 	padding-top: 60px;
 `
 
-export default Audio
+export default Packages
