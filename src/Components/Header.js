@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import { ShoppingCartOutlined } from '@ant-design/icons'
 import { Link, withRouter } from 'react-router-dom'
@@ -9,70 +9,68 @@ import ShoppingCart from './ShoppingCart'
 import Toggle from './Toggle'
 
 const Header = (props) => {
-  return (
-    <Wrapper currentLocation={props.history.location.pathname}>
-      <Video>
-        <video
-          playsInline
-          loop
-          muted
-          autoPlay
-          src='https://res.cloudinary.com/dtuu0mnxw/video/upload/v1594081662/DAV_HERO_VIDEO_4K_v.2_gsdwze.mp4'
-        />
-      </Video>
+	return (
+		<Wrapper currentLocation={props.history.location.pathname}>
+			<Video>
+				<video
+					playsInline
+					loop
+					muted
+					autoPlay
+					src="https://res.cloudinary.com/dtuu0mnxw/video/upload/v1594081662/DAV_HERO_VIDEO_4K_v.2_gsdwze.mp4"
+				/>
+			</Video>
 
-      <div className='content'>
-        <Link to='/'>
-          <Logo src={logo} alt='Logo' />
-        </Link>
-        <Navigation />
+			<div className="content">
+				<Link to="/">
+					<Logo src={logo} alt="Logo" />
+				</Link>
+				<Navigation />
 
-        <Toggle>
-          {({ on, toggle }) =>
-            on ? (
-              <>
-                <ShoppingCartOutlined
-                  onClick={toggle}
-                  style={{
-                    cursor: 'pointer',
-                    color: '#ffffff',
-                    fontSize: 30
-                  }}
-                />
-                <ShoppingCart toggle={toggle} />
-              </>
-            ) : (
-              <ShoppingCartOutlined
-                onClick={toggle}
-                style={{
-                  cursor: 'pointer',
-                  color: '#fff600',
-                  fontSize: 30
-                }}
-              />
-            )}
-        </Toggle>
-      </div>
-      <Slogan>
-				Professional Audio Visual Equipment For Less
-      </Slogan>
+				<Toggle>
+					{({ on, toggle }) =>
+						on ? (
+							<Fragment>
+								<ShoppingCartOutlined
+									onClick={toggle}
+									style={{
+										cursor: 'pointer',
+										color: '#ffffff',
+										fontSize: 30
+									}}
+								/>
+								<ShoppingCart toggle={toggle} />
+							</Fragment>
+						) : (
+							<ShoppingCartOutlined
+								onClick={toggle}
+								style={{
+									cursor: 'pointer',
+									color: '#fff600',
+									fontSize: 30
+								}}
+							/>
+						)}
+				</Toggle>
+			</div>
+			<Slogan>Professional Audio Visual Equipment For Less</Slogan>
 
-      {props.history.location.pathname === '/' ? (
-        <div
-          className='scrollDownContainer'
-          onClick={() =>
-            window.scrollTo({ top: 650, behavior: 'smooth' })}
-        >
-          <div className='chevronContainer'>
-            <div className='chevron' />
-            <div className='chevron' />
-            <div className='chevron' />
-          </div>
-          <p className='text'>Scroll down</p>
-        </div>
-      ) : null}
-    </Wrapper>
-  )
+			{props.history.location.pathname === '/' ? (
+				<div
+					className="scrollDownContainer"
+					onClick={() =>
+						window.scrollTo({ top: 650, behavior: 'smooth' })}
+				>
+					<div className="chevronContainer">
+						<div className="chevron" />
+						<div className="chevron" />
+						<div className="chevron" />
+					</div>
+					<p className="text">Scroll down</p>
+				</div>
+			) : null}
+		</Wrapper>
+	)
 }
 
 const Wrapper = styled.header`
@@ -88,22 +86,22 @@ const Wrapper = styled.header`
 
 	z-index: 10 !important;
 
-	@media screen and (max-width: 992px) {
-		height: 200px;
+	@media screen and (min-width: 1920px) {
+		${(props) => props.currentLocation === '/' && 'height: 700px'};
 	}
 
-	@media screen and (min-width: 1220px) {
-		${(props) => props.currentLocation === '/' && 'height: 700px'};
+	@media screen and (max-width: 992px) {
+		height: 300px;
 	}
 `
 
 const Video = styled.div`
 	position: absolute;
-	top: 0;
+	top: -200px;
 	left: 0;
 	z-index: -1;
 	width: 100%;
-	height: 80%;
+	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -117,9 +115,46 @@ const Video = styled.div`
 		min-width: 100%;
 		overflow: hidden;
 
+		@media screen and (max-width: 1800px) {
+			position: absolute;
+			top: -60px;
+			height: auto;
+			left: 0;
+			width: 100%;
+			object-fit: fill !important;
+		}
+
+		@media screen and (max-width: 1700px) {
+			position: absolute;
+			top: 80px;
+			height: auto;
+			left: 0;
+			width: 100%;
+			object-fit: fill !important;
+		}
+
+		@media screen and (max-width: 1400px) {
+			position: absolute;
+			top: 200px;
+			height: auto;
+			left: 0;
+			width: 100%;
+			object-fit: fill !important;
+		}
+
+		@media screen and (max-width: 1160px) {
+			position: absolute;
+			top: 200px;
+			height: auto;
+			left: 0;
+			width: 100%;
+			object-fit: fill !important;
+		}
+
 		@media screen and (max-width: 992px) {
 			position: absolute;
-			top: 0;
+			top: 200px;
+			height: auto;
 			left: 0;
 			width: 100%;
 			object-fit: fill !important;

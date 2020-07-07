@@ -6,16 +6,15 @@ import styled from 'styled-components'
 const Cards = () => {
 	return (
 		<Wrapper className="staggerContainer">
-			<Row>
-				<Col lg={12} sm={24} xs={24}>
+			<Row style={{ marginBottom: 200 }}>
+				<Col lg={12} md={24} sm={24} xs={24}>
 					<Card
 						title="SMALL P.A. SYSTEM"
 						quantity="50-100"
 						image="https://res.cloudinary.com/dtuu0mnxw/image/upload/v1594079537/AUDIO_PACKAGE_SMALL_P.A._SYSTEM_50-100_PEOPLE_mfw54c.png"
+						applyNegativeMargin={true}
 						style={{
-							marginTop: '-200px',
-							backgroundColor: '#fff600',
-							zIndex: 3000
+							marginBottom: '300px'
 						}}
 						description={[
 							'2 x Speakers with Stands',
@@ -34,13 +33,13 @@ const Cards = () => {
 					/>
 				</Col>
 
-				<Col lg={12} sm={24} xs={24}>
+				<Col lg={12} md={24} sm={24} xs={24}>
 					<Card
+						applyNegativeMargin={true}
 						title="LCD Projection Package"
 						quantity="10-50"
 						image="https://res.cloudinary.com/dtuu0mnxw/image/upload/v1594079505/LCD_PROJECTION_PACKAGE_10-50_pdh6mp.png"
 						style={{
-							marginTop: '-200px',
 							backgroundColor: '#fff600',
 							zIndex: 3000
 						}}
@@ -62,8 +61,8 @@ const Cards = () => {
 				</Col>
 			</Row>
 
-			<Row>
-				<Col lg={12} sm={24} xs={24}>
+			<Row style={{ marginBottom: 200 }}>
+				<Col lg={12} md={24} sm={24} xs={24}>
 					<Card
 						title="MEDIUM P.A. SYSTEM"
 						quantity="100-200"
@@ -84,7 +83,7 @@ const Cards = () => {
 						]}
 					/>
 				</Col>
-				<Col lg={12} sm={24} xs={24}>
+				<Col lg={12} md={24} sm={24} xs={24}>
 					<Card
 						title="LCD Projection Package"
 						quantity="50-100"
@@ -108,7 +107,7 @@ const Cards = () => {
 			</Row>
 
 			<Row>
-				<Col lg={12} sm={24} xs={24}>
+				<Col lg={12} md={24} sm={24} xs={24}>
 					<Card
 						title="A LA CARTE Audio Equipment"
 						image="https://res.cloudinary.com/dtuu0mnxw/image/upload/v1594079528/AUDIO_PACKAGE_A_LA_CARTE_AUDIO_EQUIPMENT_zklfjs.png"
@@ -126,7 +125,7 @@ const Cards = () => {
 					/>
 				</Col>
 
-				<Col lg={12} sm={24} xs={24}>
+				<Col lg={12} md={24} sm={24} xs={24}>
 					<Card
 						title="50&quot; LED Monitor Package"
 						quantity="10-50"

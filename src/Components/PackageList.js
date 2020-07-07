@@ -8,8 +8,8 @@ const PackageList = () => {
 	return (
 		<Container>
 			<Wrapper className="staggerContainer">
-				<Row align="middle">
-					<Col lg={12} sm={24} xs={24}>
+				<Row gutter={[ 16, 24 ]} style={{ marginBottom: 200 }}>
+					<Col xxl={12} xl={12} lg={24} md={24} sm={24} xs={24}>
 						<Card
 							title="SMALL P.A. SYSTEM"
 							quantity="50-100"
@@ -31,7 +31,7 @@ const PackageList = () => {
 						/>
 					</Col>
 
-					<Col lg={12} sm={24} xs={24}>
+					<Col xxl={12} xl={12} lg={24} md={24} sm={24} xs={24}>
 						<Card
 							title="LCD Projection Package"
 							quantity="10-50"
@@ -54,8 +54,8 @@ const PackageList = () => {
 					</Col>
 				</Row>
 
-				<Row>
-					<Col lg={12} sm={24} xs={24}>
+				<Row gutter={[ 16, 24 ]} style={{ marginBottom: 200 }}>
+					<Col xxl={12} xl={12} lg={24} md={24} sm={24} xs={24}>
 						<Card
 							title="MEDIUM P.A. SYSTEM"
 							quantity="100-200"
@@ -77,7 +77,7 @@ const PackageList = () => {
 						/>
 					</Col>
 
-					<Col lg={12} sm={24} xs={24}>
+					<Col lg={12} md={24} sm={24} xs={24}>
 						<Card
 							title="LCD Projection Package"
 							quantity="100-200"
@@ -101,7 +101,7 @@ const PackageList = () => {
 				</Row>
 
 				<Row>
-					<Col lg={12} sm={24} xs={24}>
+					<Col lg={12} md={24} sm={24} xs={24}>
 						<Card
 							title="A LA CARTE Audio Equipment"
 							image="https://res.cloudinary.com/dtuu0mnxw/image/upload/v1594079528/AUDIO_PACKAGE_A_LA_CARTE_AUDIO_EQUIPMENT_zklfjs.png"
@@ -119,7 +119,7 @@ const PackageList = () => {
 						/>
 					</Col>
 
-					<Col lg={12} sm={24} xs={24}>
+					<Col lg={12} md={24} sm={24} xs={24}>
 						<Card
 							title="50” LED Monitor Package"
 							image="https://res.cloudinary.com/dtuu0mnxw/image/upload/v1594079444/50_INCH_LED_MONITOR_PACKAGE_t8ulio.png"
@@ -141,7 +141,7 @@ const PackageList = () => {
 				</Row>
 
 				<Row>
-					<Col lg={12} sm={24} xs={24}>
+					<Col lg={12} md={24} sm={24} xs={24}>
 						<Card
 							title="65” LED Monitor Package"
 							quantity="50-100"
@@ -161,7 +161,7 @@ const PackageList = () => {
 						/>
 					</Col>
 
-					<Col lg={12} sm={24} xs={24}>
+					<Col lg={12} md={24} sm={24} xs={24}>
 						<Card
 							title="80” LED Monitor Package"
 							image="https://res.cloudinary.com/dtuu0mnxw/image/upload/v1594079486/80_INCH_LED_MONITOR_PACKAGE_g2jz4y.png"
@@ -183,7 +183,7 @@ const PackageList = () => {
 				</Row>
 
 				<Row>
-					<Col lg={12} sm={24} xs={24}>
+					<Col lg={12} md={24} sm={24} xs={24}>
 						<Card
 							title="A la Carte Visual Equipment"
 							image="https://res.cloudinary.com/dtuu0mnxw/image/upload/v1594079495/A_LA_CARTE_VISUAL_EQUIPMENT_bhykue.png"
@@ -214,7 +214,7 @@ const PackageList = () => {
 						/>
 					</Col>
 
-					<Col lg={12} sm={24} xs={24}>
+					<Col lg={12} md={24} sm={24} xs={24}>
 						<Card
 							title="Miscellaneous Equipment"
 							image="https://res.cloudinary.com/dtuu0mnxw/image/upload/v1594079547/MISCELLANEOUS_EQUIPMENT_uizrhu.png"

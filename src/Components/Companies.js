@@ -31,6 +31,9 @@ const Companies = (props) => {
 							alt="Discount Audio Visual"
 						/>
 					</li>
+				</div>
+
+				<div>
 					<li>
 						<img
 							src="https://res.cloudinary.com/dtuu0mnxw/image/upload/v1594083566/ARMANI_JEANS_LOGO_gw1egl.png"
@@ -82,6 +85,9 @@ const Companies = (props) => {
 							alt="Discount Audio Visual"
 						/>
 					</li>
+				</div>
+
+				<div>
 					<li>
 						<img
 							src="https://res.cloudinary.com/dtuu0mnxw/image/upload/v1594083567/BAYER_LOGO_iu5bj6.png"
@@ -113,26 +119,30 @@ const Companies = (props) => {
 }
 
 const Wrapper = styled.div`
-	margin-top: 60px;
+	margin-top: 80px;
 	width: 100%;
-	height: 600px;
+	/* height: 600px; */
 	background: #000000;
 
 	ul {
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
+		flex-wrap: wrap;
 		height: 70%;
+		margin-top: 40px;
 		li {
 			list-style: none;
+			padding: 50px;
 		}
 		div {
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			flex-wrap: wrap;
 
-			img:nth-child(1) {
-				margin-right: 100px;
+			img {
+				width: 150px;
 			}
 		}
 	}

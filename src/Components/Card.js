@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 import styled from 'styled-components'
 import { PlusOutlined, ShoppingCartOutlined } from '@ant-design/icons'
 import { DatePicker, notification } from 'antd'
@@ -11,146 +11,147 @@ import Options from './Options'
 import Toggle from './Toggle'
 
 const Card = ({
-  title,
-  quantity,
-  description = [],
-  image = '',
-  options = [],
-  style = {},
-  addToCart
+	title,
+	quantity,
+	description = [],
+	image = '',
+	options = [],
+	style = {},
+	addToCart,
+	applyNegativeMargin
 }) => {
-  const [addToCartHovered, setAddToCartHovered] = useState(false)
-  const [viewCartHovered, setViewCardHovered] = useState(false)
-  const [showMoreClicked, setShowMore] = useState(false)
-  const [pickedDate, setPickedDate] = useState('')
-  const [selectedPackage, setSelectedPackage] = useState('')
+	const [ addToCartHovered, setAddToCartHovered ] = useState(false)
+	const [ viewCartHovered, setViewCardHovered ] = useState(false)
+	const [ showMoreClicked, setShowMore ] = useState(false)
+	const [ pickedDate, setPickedDate ] = useState('')
+	const [ selectedPackage, setSelectedPackage ] = useState('')
 
-  const handleAddToCart = () => {
-    const splitted = selectedPackage.split(' ')
-    const total = splitted.slice(splitted.length - 2)
-    const price = total[0]
-    // const currency = total[1]
-    const option = splitted.slice(0, splitted.length - 2).join(' ')
-    const order = {
-      id: uuid(),
-      title,
-      price,
-      option,
-      image
-    }
-    addToCart(pickedDate, order)
+	const handleAddToCart = () => {
+		const splitted = selectedPackage.split(' ')
+		const total = splitted.slice(splitted.length - 2)
+		const price = total[0]
+		// const currency = total[1]
+		const option = splitted.slice(0, splitted.length - 2).join(' ')
+		const order = {
+			id: uuid(),
+			title,
+			price,
+			option,
+			image
+		}
+		addToCart(pickedDate, order)
 
-    notification.open({
-      message: `${title.toUpperCase()} was added to cart`,
-      placement: 'bottomRight',
-      style: {
-        backgroundColor: '#000000',
-        color: '#fff600 !important',
-        borderRadius: 4
-      }
-    })
-  }
+		notification.open({
+			message: `${title.toUpperCase()} was added to cart`,
+			placement: 'bottomRight',
+			style: {
+				backgroundColor: '#000000',
+				color: '#fff600 !important',
+				borderRadius: 4
+			}
+		})
+	}
 
-  return (
-    <Toggle>
-      {({ on, toggle }) => (
-        <Wrapper style={{ ...style }}>
-          <Title>
-            {title}
-            {quantity ? (
-              <Quantity>{quantity} PEOPLE</Quantity>
-            ) : null}
-          </Title>
-          <div>
-            <Image src={image} alt='Discount AV Equipment Image' />
-          </div>
-          <div>
-            <Description>
-              {description.length > 4 ? (
-                <>
-                  {showMoreClicked ? (
-                    description.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))
-                  ) : (
-                    description
-                      .slice(0, 2)
-                      .map((item) => (
-                        <li key={item}>{item}</li>
-                      ))
-                  )}
-                  <ShowMoreButton
-                    onClick={() =>
-                      setShowMore(!showMoreClicked)}
-                  >
-                    {showMoreClicked ? (
-                      'Show Less'
-                    ) : (
-                      'Show More'
-                    )}
-                  </ShowMoreButton>
-                </>
-              ) : (
-                description.map((item) => (
-                  <li key={item}>{item}</li>
-                ))
-              )}
-            </Description>
-            <div style={{ width: 400, margin: '0 auto' }}>
-              <Options
-                options={options}
-                setSelectedPackage={setSelectedPackage}
-              />
-              <DatePicker
-                showTime
-                mode='date'
-                format='MMMM Do YYYY, h:mm a'
-                popupStyle={{
-                  background: 'red'
-                }}
-                style={{ marginTop: '30px' }}
-                onChange={(date) =>
-                  setPickedDate(
-                    moment(date).format(
-                      'MMM DD, YYYY | HH:MM'
-                    )
-                )}
-              />
-            </div>
-            <Buttons isHovered={addToCartHovered}>
-              <Button
-                onMouseOver={() => setAddToCartHovered(true)}
-                onMouseLeave={() => setAddToCartHovered(false)}
-                isHovered={addToCartHovered}
-                onClick={handleAddToCart}
-              >
-                {addToCartHovered ? (
-                  <PlusOutlined />
-                ) : (
-                  'Add to Cart'
-                )}
-              </Button>
+	return (
+		<Toggle>
+			{({ on, toggle }) => (
+				<Wrapper applyNegativeMargin={applyNegativeMargin}>
+					<Title>
+						{title}
+						{quantity ? (
+							<Quantity>{quantity} PEOPLE</Quantity>
+						) : null}
+					</Title>
+					<div>
+						<Image src={image} alt="Discount AV Equipment Image" />
+					</div>
+					<div>
+						<Description>
+							{description.length > 4 ? (
+								<Fragment>
+									{showMoreClicked ? (
+										description.map((item) => (
+											<li key={item}>{item}</li>
+										))
+									) : (
+										description
+											.slice(0, 2)
+											.map((item) => (
+												<li key={item}>{item}</li>
+											))
+									)}
+									<ShowMoreButton
+										onClick={() =>
+											setShowMore(!showMoreClicked)}
+									>
+										{showMoreClicked ? (
+											'Show Less'
+										) : (
+											'Show More'
+										)}
+									</ShowMoreButton>
+								</Fragment>
+							) : (
+								description.map((item) => (
+									<li key={item}>{item}</li>
+								))
+							)}
+						</Description>
+						<div style={{ width: 400, margin: '0 auto' }}>
+							<Options
+								options={options}
+								setSelectedPackage={setSelectedPackage}
+							/>
+							<DatePicker
+								showTime
+								mode="date"
+								format="MMMM Do YYYY, h:mm a"
+								popupStyle={{
+									background: 'red'
+								}}
+								style={{ marginTop: '30px' }}
+								onChange={(date) =>
+									setPickedDate(
+										moment(date).format(
+											'MMM DD, YYYY | HH:MM'
+										)
+									)}
+							/>
+						</div>
+						<Buttons isHovered={addToCartHovered}>
+							<Button
+								onMouseOver={() => setAddToCartHovered(true)}
+								onMouseLeave={() => setAddToCartHovered(false)}
+								isHovered={addToCartHovered}
+								onClick={handleAddToCart}
+							>
+								{addToCartHovered ? (
+									<PlusOutlined />
+								) : (
+									'Add to Cart'
+								)}
+							</Button>
 
-              <Button
-                onClick={toggle}
-                onMouseOver={() => setViewCardHovered(true)}
-                onMouseLeave={() => setViewCardHovered(false)}
-                className='viewCart'
-              >
-                {viewCartHovered ? (
-                  <ShoppingCartOutlined
-                    style={{ fontSize: 18 }}
-                  />
-                ) : (
-                  'View Cart'
-                )}
-              </Button>
-            </Buttons>
-          </div>
-        </Wrapper>
-      )}
-    </Toggle>
-  )
+							<Button
+								onClick={toggle}
+								onMouseOver={() => setViewCardHovered(true)}
+								onMouseLeave={() => setViewCardHovered(false)}
+								className="viewCart"
+							>
+								{viewCartHovered ? (
+									<ShoppingCartOutlined
+										style={{ fontSize: 18 }}
+									/>
+								) : (
+									'View Cart'
+								)}
+							</Button>
+						</Buttons>
+					</div>
+				</Wrapper>
+			)}
+		</Toggle>
+	)
 }
 
 const Wrapper = styled.div`
@@ -163,9 +164,15 @@ const Wrapper = styled.div`
 	min-height: 600px;
 	width: 600px;
 	margin: 0 auto 100px auto;
+	margin-top: -200px;
+	background-color: #fff600;
+	z-index: 3000;
+	transform: scale(1.05) !important;
 
-	&:hover {
-		transform: scale(1.05) !important;
+	@media screen and (max-width: 1400px) {
+		max-width: 500px;
+		margin-top: 0;
+		margin-bottom: 100px;
 	}
 
 	@media screen and (max-width: 992px) {
@@ -173,6 +180,7 @@ const Wrapper = styled.div`
 		justify-content: center;
 		align-items: center;
 		width: 100%;
+		margin: 0 auto 70px auto;
 	}
 `
 
