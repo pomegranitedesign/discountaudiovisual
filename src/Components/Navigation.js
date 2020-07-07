@@ -3,48 +3,48 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Navigation = () => {
-  return (
-    <Wrapper>
-      <ul>
-        <NavLink to='/about-us'>
-          <li
-            style={{
-              marginRight: '5%',
-              lineHeight: '0 !important'
-            }}
-          >
+	return (
+		<Wrapper>
+			<ul>
+				<NavLink to="/about-us">
+					<li
+						style={{
+							marginRight: '5%',
+							lineHeight: '0 !important'
+						}}
+					>
 						ABOUT
-          </li>
-        </NavLink>
+					</li>
+				</NavLink>
 
-        <NavLink to='/packages'>
-          <li
-            style={{
-              marginRight: '5%',
-              lineHeight: '0 !important'
-            }}
-          >
+				<NavLink to="/packages">
+					<li
+						style={{
+							marginRight: '5%',
+							lineHeight: '0 !important'
+						}}
+					>
 						AUDIO / VISUAL
-          </li>
-        </NavLink>
+					</li>
+				</NavLink>
 
-        <NavLink to='/live-streaming-packages'>
-          <li
-            style={{
-              marginRight: '5%',
-              lineHeight: '0 !important'
-            }}
-          >
+				<NavLink to="/live-streaming-packages">
+					<li
+						style={{
+							marginRight: '5%',
+							lineHeight: '0 !important'
+						}}
+					>
 						EVENT LIVE-STREAMING
-          </li>
-        </NavLink>
+					</li>
+				</NavLink>
 
-        <NavLink to='/contact-us'>
-          <li>CONTACT US</li>
-        </NavLink>
-      </ul>
-    </Wrapper>
-  )
+				<NavLink to="/contact-us">
+					<li>CONTACT US</li>
+				</NavLink>
+			</ul>
+		</Wrapper>
+	)
 }
 
 const Wrapper = styled.nav`

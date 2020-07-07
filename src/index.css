@@ -162,6 +162,19 @@ ul {
 	color: #fff600 !important;
 }
 
+.ant-picker-header,
+.ant-picker-time-panel,
+.ant-picker-time-panel-column,
+.ant-picker-footer {
+	border: none !important;
+}
+
+.ant-picker-cell-inner:hover,
+.ant-picker-cell.ant-picker-cell-in-view,
+.ant-picker-time-panel-cell-inner {
+	background: none !important;
+}
+
 @keyframes fadeIn {
 	from {
 		opacity: 0;

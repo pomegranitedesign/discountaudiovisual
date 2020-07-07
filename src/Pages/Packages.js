@@ -3,14 +3,16 @@ import styled from 'styled-components'
 import PackageList from '../Components/PackageList'
 
 const Packages = (props) => {
-  useEffect(() => {
-    if (window.innerWidth >= 992) { window.scrollTo({ top: 600, behavior: 'smooth' }) }
-  }, [])
-  return (
-    <Wrapper>
-      <PackageList />
-    </Wrapper>
-  )
+	useEffect(() => {
+		if (window.innerWidth >= 992) {
+			window.scrollTo({ top: 600, behavior: 'smooth' })
+		}
+	}, [])
+	return (
+		<Wrapper>
+			<PackageList />
+		</Wrapper>
+	)
 }
 
 const Wrapper = styled.div`

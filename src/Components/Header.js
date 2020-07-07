@@ -17,7 +17,7 @@ const Header = (props) => {
           loop
           muted
           autoPlay
-          src='https://res.cloudinary.com/dtuu0mnxw/video/upload/v1594006305/hero_video_4K_v.1_omgeep.mp4'
+          src='https://res.cloudinary.com/dtuu0mnxw/video/upload/v1594081662/DAV_HERO_VIDEO_4K_v.2_gsdwze.mp4'
         />
       </Video>
 
@@ -54,8 +54,7 @@ const Header = (props) => {
         </Toggle>
       </div>
       <Slogan>
-				Professional Audio Visual <br />
-				Equipment For Less
+				Professional Audio Visual Equipment For Less
       </Slogan>
 
       {props.history.location.pathname === '/' ? (
@@ -134,7 +133,7 @@ const Logo = styled.img`
 `
 
 const Slogan = styled.h1`
-	font-size: 3.2vw;
+	font-size: 2.5vw;
 	margin-top: 60px;
 	padding-bottom: 60px;
 	font-weight: 700;

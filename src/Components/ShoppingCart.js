@@ -5,98 +5,100 @@ import { Table } from 'antd'
 import { CloseOutlined } from '@ant-design/icons'
 import { connect } from 'react-redux'
 import Modal from './Modal'
-import testingImage from '../Assets/Images/equipment_3.png'
 import { removeFromCart } from '../Redux/actions'
 
 const ShoppingCart = ({ toggle, state, removeFromCart }) => {
-  // const [ paidFor, setPaidFor ] = useState(false)
-  // const [ loaded, setLoaded ] = useState(false)
+	// const [ paidFor, setPaidFor ] = useState(false)
+	// const [ loaded, setLoaded ] = useState(false)
 
-  // let paypalRef = useRef()
+	// let paypalRef = useRef()
 
-  // useEffect(() => {
-  // 	const script = document.createElement('script')
-  // 	script.src = 'https://paypal.com/sdk/js?client-id=YOUR_CLIENT_ID'
-  // 	script.addEventListener('load', () => setLoaded(true))
-  // 	document.body.appendChild(script)
-  // 	if (loaded) {
-  // 		setTimeout(() =>
-  // 			window.paypal
-  // 				.Buttons({
-  // 					createOrder: (data, actions) => {
-  // 						return actions.order.create({
-  // 							purchase_units: state.state.order
-  // 						})
-  // 					},
-  // 					onApprove: async (data, actions) => {
-  // 						const order = await actions.order.capture()
-  // 						console.log(order)
-  // 					}
-  // 				})
-  // 				.render(paypalRef)
-  // 		)
-  // 	}
-  // }, [])
+	// useEffect(() => {
+	// 	const script = document.createElement('script')
+	// 	script.src = 'https://paypal.com/sdk/js?client-id=YOUR_CLIENT_ID'
+	// 	script.addEventListener('load', () => setLoaded(true))
+	// 	document.body.appendChild(script)
+	// 	if (loaded) {
+	// 		setTimeout(() =>
+	// 			window.paypal
+	// 				.Buttons({
+	// 					createOrder: (data, actions) => {
+	// 						return actions.order.create({
+	// 							purchase_units: state.state.order
+	// 						})
+	// 					},
+	// 					onApprove: async (data, actions) => {
+	// 						const order = await actions.order.capture()
+	// 						console.log(order)
+	// 					}
+	// 				})
+	// 				.render(paypalRef)
+	// 		)
+	// 	}
+	// }, [])
 
-  const _columns = [
-    {
-      title: '',
-      dataIndex: 'image',
-      key: 'image',
-      render: () => (
-        <img
-          src={testingImage}
-          alt='Discount Audio Visual'
-          style={{ width: 70 }}
-        />
-      )
-    },
-    {
-      title: 'Package',
-      dataIndex: 'package',
-      key: 'package'
-    },
-    {
-      title: 'Option',
-      dataIndex: 'option',
-      key: 'option'
-    },
-    {
-      title: 'Price',
-      dataIndex: 'price',
-      key: 'price'
-      // render: (price) => <p>${price.toFixed(2)}</p>
-    },
-    {
-      title: '',
-      key: 'remove',
-      render: (info) => {
-        return (
-          <CloseOutlinedStyled
-            style={{ cursor: 'pointer' }}
-            onClick={() => removeFromCart(info.id)}
-          />
-        )
-      }
-    }
-  ]
+	const _columns = [
+		{
+			title: '',
+			dataIndex: 'image',
+			key: 'image',
+			render: (info) => {
+				console.log(info)
+				return (
+					<img
+						src={info}
+						alt="Discount Audio Visual"
+						style={{ width: 70 }}
+					/>
+				)
+			}
+		},
+		{
+			title: 'Package',
+			dataIndex: 'package',
+			key: 'package'
+		},
+		{
+			title: 'Option',
+			dataIndex: 'option',
+			key: 'option'
+		},
+		{
+			title: 'Price',
+			dataIndex: 'price',
+			key: 'price'
+			// render: (price) => <p>${price.toFixed(2)}</p>
+		},
+		{
+			title: '',
+			key: 'remove',
+			render: (info) => {
+				return (
+					<CloseOutlinedStyled
+						style={{ cursor: 'pointer' }}
+						onClick={() => removeFromCart(info.id)}
+					/>
+				)
+			}
+		}
+	]
 
-  const props = useSpring({
-    opacity: 1,
-    from: { opacity: 0 }
-  })
-  return (
-    <Wrapper onClick={toggle} style={props}>
-      <Modal toggle={toggle}>
-        <Table
-          pagination={{ hideOnSinglePage: true }}
-          columns={_columns}
-          dataSource={state.state.order}
-          rowClassName='customTableRow'
-        />
-      </Modal>
-    </Wrapper>
-  )
+	const props = useSpring({
+		opacity: 1,
+		from: { opacity: 0 }
+	})
+	return (
+		<Wrapper onClick={toggle} style={props}>
+			<Modal toggle={toggle}>
+				<Table
+					pagination={{ hideOnSinglePage: true }}
+					columns={_columns}
+					dataSource={state.state.order}
+					rowClassName="customTableRow"
+				/>
+			</Modal>
+		</Wrapper>
+	)
 }
 
 const Wrapper = styled(animated.div)`
