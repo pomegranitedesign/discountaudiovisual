@@ -182,6 +182,14 @@ const Wrapper = styled.div`
 		width: 100%;
 		margin: 0 auto 70px auto;
 	}
+
+	@media screen and (max-width: 768px) {
+		width: 200px !important;
+	}
+
+	@media screen and (max-width: 370px) {
+		width: 200px !important;
+	}
 `
 
 const Title = styled.h1`

@@ -150,15 +150,6 @@ const Video = styled.div`
 			width: 100%;
 			object-fit: fill !important;
 		}
-
-		@media screen and (max-width: 992px) {
-			position: absolute;
-			top: 200px;
-			height: auto;
-			left: 0;
-			width: 100%;
-			object-fit: fill !important;
-		}
 	}
 `
 

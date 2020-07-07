@@ -146,6 +146,10 @@ const Cards = () => {
 	)
 }
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+	@media screen and (max-width: 768px) {
+		max-width: 200px;
+	}
+`
 
 export default Cards
