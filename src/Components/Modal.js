@@ -6,11 +6,11 @@ import { useTransition, animated } from 'react-spring'
 const _items = [ 1 ]
 
 const Modal = ({ children, toggle }) => {
-	const transitions = useTransition(_items, (item) => item, {
-		from: { opacity: 0, height: '0px' },
-		enter: { opacity: 1, height: '900px' },
-		leave: { opacity: 0, height: '0px' }
-	})
+	// const transitions = useTransition(_items, (item) => item, {
+	// 	from: { opacity: 0, height: '0px' },
+	// 	enter: { opacity: 1, height: '900px' },
+	// 	leave: { opacity: 0, height: '0px' }
+	// })
 	return (
 		<Wrapper onClick={toggle}>
 			<CloseOutlinedStyled
