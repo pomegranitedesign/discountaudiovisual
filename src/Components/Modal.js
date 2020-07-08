@@ -1,9 +1,9 @@
 import React from 'react'
 import { CloseOutlined } from '@ant-design/icons'
 import styled from 'styled-components'
-import { useTransition, animated } from 'react-spring'
+import { animated } from 'react-spring'
 
-const _items = [ 1 ]
+// const _items = [ 1 ]
 
 const Modal = ({ children, toggle }) => {
 	// const transitions = useTransition(_items, (item) => item, {
