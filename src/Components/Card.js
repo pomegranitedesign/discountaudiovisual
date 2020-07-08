@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from 'react'
+import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import { PlusOutlined, ShoppingCartOutlined } from '@ant-design/icons'
 import { DatePicker, notification } from 'antd'
@@ -16,9 +17,9 @@ const Card = ({
 	description = [],
 	image = '',
 	options = [],
-	style = {},
 	addToCart,
-	applyNegativeMargin
+	applyNegativeMargin,
+	history
 }) => {
 	const [ addToCartHovered, setAddToCartHovered ] = useState(false)
 	const [ viewCartHovered, setViewCardHovered ] = useState(false)
@@ -55,13 +56,12 @@ const Card = ({
 	return (
 		<Toggle>
 			{({ on, toggle }) => (
-				<Wrapper applyNegativeMargin={applyNegativeMargin}>
-					<Title>
-						{title}
-						{quantity ? (
-							<Quantity>{quantity} PEOPLE</Quantity>
-						) : null}
-					</Title>
+				<Wrapper
+					applyNegativeMargin={applyNegativeMargin}
+					location={history.location.pathname}
+				>
+					<Title>{title}</Title>
+					{quantity ? <Quantity>{quantity} PEOPLE</Quantity> : null}
 					<div>
 						<Image src={image} alt="Discount AV Equipment Image" />
 					</div>
@@ -164,10 +164,10 @@ const Wrapper = styled.div`
 	min-height: 600px;
 	width: 600px;
 	margin: 0 auto 100px auto;
-	margin-top: -200px;
 	background-color: #fff600;
 	z-index: 3000;
 	transform: scale(1.05) !important;
+	margin-top: ${(props) => (props.location === '/' ? '-200px' : '0px')};
 
 	@media screen and (max-width: 1400px) {
 		max-width: 500px;
@@ -196,9 +196,8 @@ const Title = styled.h1`
 	padding: 0;
 	margin: 0;
 	font-size: 1.3vw;
-	font-weight: 800;
+	font-weight: 700;
 	text-transform: uppercase;
-	margin-bottom: 30px;
 
 	@media screen and (max-width: 992px) {
 		margin-top: 10px;
@@ -214,10 +213,10 @@ const Title = styled.h1`
 const Quantity = styled.h1`
 	padding: 0;
 	margin: 0;
-	font-size: 1.3vw;
+	font-size: 1vw;
 	font-weight: 400;
-	display: inline;
-	padding-left: 10px;
+	display: block;
+	margin-bottom: 30px;
 
 	@media screen and (max-width: 992px) {
 		font-size: 1.4vw;
@@ -303,4 +302,4 @@ const ShowMoreButton = styled.button`
 // REDUX
 const mapStateToProps = (state) => ({ state })
 
-export default connect(mapStateToProps, { addToCart })(Card)
+export default withRouter(connect(mapStateToProps, { addToCart })(Card))

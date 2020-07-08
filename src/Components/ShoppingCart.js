@@ -2,40 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 import { animated, useSpring } from 'react-spring'
 import { Table } from 'antd'
-import { CloseOutlined } from '@ant-design/icons'
 import { connect } from 'react-redux'
 import Modal from './Modal'
 import { removeFromCart } from '../Redux/actions'
+import { CloseOutlined } from '@ant-design/icons'
+import PayPal from './PayPal'
 
 const ShoppingCart = ({ toggle, state, removeFromCart }) => {
-	// const [ paidFor, setPaidFor ] = useState(false)
-	// const [ loaded, setLoaded ] = useState(false)
-
-	// let paypalRef = useRef()
-
-	// useEffect(() => {
-	// 	const script = document.createElement('script')
-	// 	script.src = 'https://paypal.com/sdk/js?client-id=YOUR_CLIENT_ID'
-	// 	script.addEventListener('load', () => setLoaded(true))
-	// 	document.body.appendChild(script)
-	// 	if (loaded) {
-	// 		setTimeout(() =>
-	// 			window.paypal
-	// 				.Buttons({
-	// 					createOrder: (data, actions) => {
-	// 						return actions.order.create({
-	// 							purchase_units: state.state.order
-	// 						})
-	// 					},
-	// 					onApprove: async (data, actions) => {
-	// 						const order = await actions.order.capture()
-	// 						console.log(order)
-	// 					}
-	// 				})
-	// 				.render(paypalRef)
-	// 		)
-	// 	}
-	// }, [])
+	const props = useSpring({
+		opacity: 1,
+		from: { opacity: 0 }
+	})
 
 	const _columns = [
 		{
@@ -55,7 +32,7 @@ const ShoppingCart = ({ toggle, state, removeFromCart }) => {
 		},
 		{
 			title: 'Package',
-			dataIndex: 'package',
+			dataIndex: 'title',
 			key: 'package'
 		},
 		{
@@ -83,19 +60,29 @@ const ShoppingCart = ({ toggle, state, removeFromCart }) => {
 		}
 	]
 
-	const props = useSpring({
-		opacity: 1,
-		from: { opacity: 0 }
-	})
 	return (
 		<Wrapper onClick={toggle} style={props}>
 			<Modal toggle={toggle}>
-				<Table
-					pagination={{ hideOnSinglePage: true }}
-					columns={_columns}
-					dataSource={state.state.order}
-					rowClassName="customTableRow"
-				/>
+				{state.state.order.length === 0 ? (
+					<h1
+						style={{
+							fontSize: '0.6vw',
+							textAlign: 'center',
+							padding: 20
+						}}
+					>
+						Sorry, You haven't chosen any items yet
+					</h1>
+				) : (
+					<Table
+						style={{ flex: 1, width: '80%' }}
+						pagination={{ hideOnSinglePage: true }}
+						columns={_columns}
+						dataSource={state.state.order}
+						rowClassName="customTableRow"
+					/>
+				)}
+				<PayPal />
 			</Modal>
 		</Wrapper>
 	)
@@ -110,8 +97,7 @@ const Wrapper = styled(animated.div)`
 	width: 100%;
 	height: 100%;
 	z-index: 2000;
-	overflow: hidden;
-
+	overflow: scroll;
 
 	.customTableRow {
 		background: #fff600;

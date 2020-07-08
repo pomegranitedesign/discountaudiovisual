@@ -38,6 +38,35 @@ ul {
 	color: #000000;
 }
 
+.ant-table-tbody {
+	background-color: #fff600;
+}
+
+.ant-table-tbody > tr > td:hover {
+	background-color: #fff600 !important;
+}
+
+.ant-table-tbody > tr > td {
+	border-bottom: none;
+	color: #000000 !important;
+}
+
+.ant-empty-img-simple,
+.ant-empty-description {
+	display: none;
+}
+
+td,
+tr,
+th {
+	border: none !important;
+	background: unset !important;
+}
+
+.customTableRow:hover {
+	background: unset !important;
+}
+
 @media screen and (max-width: 768px) {
 	.ant-dropdown {
 		position: relative;
