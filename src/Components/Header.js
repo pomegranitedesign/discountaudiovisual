@@ -2,7 +2,6 @@ import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import { ShoppingCartOutlined } from '@ant-design/icons'
 import { Link, withRouter } from 'react-router-dom'
-
 import logo from '../Assets/Images/logo2.png'
 import Navigation from './Navigation'
 import ShoppingCart from './ShoppingCart'
@@ -22,7 +21,7 @@ const Header = (props) => {
 			</Video>
 
 			<div className="content">
-				<Link to="/">
+				<Link to="/" style={{ zIndex: 20 }}>
 					<Logo src={logo} alt="Logo" />
 				</Link>
 				<Navigation />
@@ -47,7 +46,8 @@ const Header = (props) => {
 								style={{
 									cursor: 'pointer',
 									color: '#fff600',
-									fontSize: 30
+									fontSize: 30,
+									zIndex: 20
 								}}
 							/>
 						)}
@@ -87,7 +87,7 @@ const Wrapper = styled.header`
 	z-index: 10 !important;
 
 	@media screen and (min-width: 1920px) {
-		${(props) => props.currentLocation === '/' && 'height: 700px'};
+		${(props) => props.currentLocation === '/' && 'height: 500px'};
 	}
 
 	@media screen and (max-width: 992px) {
@@ -97,14 +97,12 @@ const Wrapper = styled.header`
 
 const Video = styled.div`
 	position: absolute;
-	top: -200px;
+	top: 0;
 	left: 0;
-	z-index: -1;
+	z-index: 0;
 	width: 100%;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	overflow: hidden;
+	height: ${(props) => (props.location === '/' ? 'auto' : '700px')};
 
 	@media screen and (max-width: 992px) {
 		height: 100%;
@@ -114,49 +112,10 @@ const Video = styled.div`
 	video {
 		min-width: 100%;
 		overflow: hidden;
-
-		@media screen and (max-width: 1800px) {
-			position: absolute;
-			top: -60px;
-			height: auto;
-			left: 0;
-			width: 100%;
-			object-fit: fill !important;
-		}
-
-		@media screen and (max-width: 1700px) {
-			position: absolute;
-			top: 80px;
-			height: auto;
-			left: 0;
-			width: 100%;
-			object-fit: fill !important;
-		}
-
-		@media screen and (max-width: 1400px) {
-			position: absolute;
-			top: 200px;
-			height: auto;
-			left: 0;
-			width: 100%;
-			object-fit: fill !important;
-		}
-
-		@media screen and (max-width: 1160px) {
-			position: absolute;
-			top: 200px;
-			height: auto;
-			left: 0;
-			width: 100%;
-			object-fit: fill !important;
-		}
 	}
 `
 
-const Logo = styled.img`
-	z-index: 20;
-	width: 150px;
-`
+const Logo = styled.img`width: 150px;`
 
 const Slogan = styled.h1`
 	font-size: 2.5vw;

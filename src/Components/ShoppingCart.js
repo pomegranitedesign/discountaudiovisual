@@ -19,11 +19,10 @@ const ShoppingCart = ({ toggle, state, removeFromCart }) => {
 			title: '',
 			dataIndex: 'image',
 			key: 'image',
-			render: (info) => {
-				console.log(info)
+			render: (img) => {
 				return (
 					<img
-						src={info}
+						src={img}
 						alt="Discount Audio Visual"
 						style={{ width: 70 }}
 					/>

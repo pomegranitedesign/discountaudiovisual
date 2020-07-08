@@ -13,7 +13,7 @@ const Navigation = () => {
 							lineHeight: '0 !important'
 						}}
 					>
-						ABOUT
+						ABOUT US
 					</li>
 				</NavLink>
 

@@ -11,6 +11,7 @@
 
 html {
 	width: 100%;
+	height: 100%;
 }
 
 h1 {
@@ -63,6 +64,14 @@ th {
 	background: unset !important;
 }
 
+.ant-picker-panel-container {
+	max-width: 400px;
+}
+
+.column {
+	padding: 0 !important;
+}
+
 .customTableRow:hover {
 	background: unset !important;
 }
@@ -72,7 +81,7 @@ th {
 		position: relative;
 		top: 0;
 		left: 0;
-		width: 400px;
+		/* width: 400px; */
 	}
 
 	.ant-dropdown-menu {
@@ -202,6 +211,15 @@ th {
 .ant-picker-cell.ant-picker-cell-in-view,
 .ant-picker-time-panel-cell-inner {
 	background: none !important;
+}
+
+.ant-picker-cell-disabled::before {
+	content: "";
+	background: unset !important;
+}
+
+.ant-picker-cell-disabled > .ant-picker-cell-inner {
+	color: lightgray !important;
 }
 
 @keyframes fadeIn {

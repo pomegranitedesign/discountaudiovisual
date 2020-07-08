@@ -8,8 +8,6 @@ import moment from 'moment'
 import { v4 as uuid } from 'uuid'
 import { addToCart } from '../Redux/actions'
 import Options from './Options'
-// import ShoppingCart from './ShoppingCart'
-import Toggle from './Toggle'
 
 const Card = ({
 	title,
@@ -19,13 +17,15 @@ const Card = ({
 	options = [],
 	addToCart,
 	applyNegativeMargin,
-	history
+	history,
+	toggle
 }) => {
 	const [ addToCartHovered, setAddToCartHovered ] = useState(false)
 	const [ viewCartHovered, setViewCardHovered ] = useState(false)
 	const [ showMoreClicked, setShowMore ] = useState(false)
+	const [ isDateSelected, setDateSelected ] = useState(false)
 	const [ pickedDate, setPickedDate ] = useState('')
-	const [ selectedPackage, setSelectedPackage ] = useState('')
+	const [ selectedPackage, setSelectedPackage ] = useState(null)
 
 	const handleAddToCart = () => {
 		const splitted = selectedPackage.split(' ')
@@ -40,7 +40,10 @@ const Card = ({
 			option,
 			image
 		}
-		addToCart(pickedDate, order)
+
+		addToCart(moment(pickedDate).format('MMMM Do YYYY, h:mm a'), order)
+		setPickedDate('')
+		setDateSelected(false)
 
 		notification.open({
 			message: `${title.toUpperCase()} was added to cart`,
@@ -54,103 +57,85 @@ const Card = ({
 	}
 
 	return (
-		<Toggle>
-			{({ on, toggle }) => (
-				<Wrapper
-					applyNegativeMargin={applyNegativeMargin}
-					location={history.location.pathname}
-				>
-					<Title>{title}</Title>
-					{quantity ? <Quantity>{quantity} PEOPLE</Quantity> : null}
-					<div>
-						<Image src={image} alt="Discount AV Equipment Image" />
-					</div>
-					<div>
-						<Description>
-							{description.length > 4 ? (
-								<Fragment>
-									{showMoreClicked ? (
-										description.map((item) => (
-											<li key={item}>{item}</li>
-										))
-									) : (
-										description
-											.slice(0, 2)
-											.map((item) => (
-												<li key={item}>{item}</li>
-											))
-									)}
-									<ShowMoreButton
-										onClick={() =>
-											setShowMore(!showMoreClicked)}
-									>
-										{showMoreClicked ? (
-											'Show Less'
-										) : (
-											'Show More'
-										)}
-									</ShowMoreButton>
-								</Fragment>
-							) : (
+		<Wrapper
+			applyNegativeMargin={applyNegativeMargin}
+			location={history.location.pathname}
+		>
+			<Title>{title}</Title>
+			{quantity ? <Quantity>{quantity} PEOPLE</Quantity> : null}
+			<div>
+				<Image src={image} alt="Discount AV Equipment Image" />
+			</div>
+			<div>
+				<Description>
+					{description.length > 4 ? (
+						<Fragment>
+							{showMoreClicked ? (
 								description.map((item) => (
 									<li key={item}>{item}</li>
 								))
+							) : (
+								description
+									.slice(0, 2)
+									.map((item) => <li key={item}>{item}</li>)
 							)}
-						</Description>
-						<div style={{ width: 400, margin: '0 auto' }}>
-							<Options
-								options={options}
-								setSelectedPackage={setSelectedPackage}
-							/>
-							<DatePicker
-								showTime
-								mode="date"
-								format="MMMM Do YYYY, h:mm a"
-								popupStyle={{
-									background: 'red'
-								}}
-								style={{ marginTop: '30px' }}
-								onChange={(date) =>
-									setPickedDate(
-										moment(date).format(
-											'MMM DD, YYYY | HH:MM'
-										)
-									)}
-							/>
-						</div>
-						<Buttons isHovered={addToCartHovered}>
-							<Button
-								onMouseOver={() => setAddToCartHovered(true)}
-								onMouseLeave={() => setAddToCartHovered(false)}
-								isHovered={addToCartHovered}
-								onClick={handleAddToCart}
+							<ShowMoreButton
+								onClick={() => setShowMore(!showMoreClicked)}
 							>
-								{addToCartHovered ? (
-									<PlusOutlined />
-								) : (
-									'Add to Cart'
-								)}
-							</Button>
+								{showMoreClicked ? 'Show Less' : 'Show More'}
+							</ShowMoreButton>
+						</Fragment>
+					) : (
+						description.map((item) => <li key={item}>{item}</li>)
+					)}
+				</Description>
+				<div style={{ margin: '0 auto' }}>
+					<Options
+						options={options}
+						setSelectedPackage={setSelectedPackage}
+					/>
+					<DatePicker
+						showTime={{ format: 'h:mm a' }}
+						placeholder="Select Date"
+						mode="date"
+						format="MMMM Do YYYY, h:mm a"
+						value={pickedDate}
+						style={{ marginTop: '30px', width: 250 }}
+						showToday={false}
+						disabledDate={(currentDate) =>
+							currentDate < moment().subtract('day', 1)}
+						onChange={(date) => {
+							setPickedDate(moment(date))
+							setDateSelected(true)
+						}}
+					/>
+				</div>
+				<Buttons isHovered={addToCartHovered}>
+					<Button
+						disabled={!isDateSelected}
+						onMouseOver={() => setAddToCartHovered(true)}
+						onMouseLeave={() => setAddToCartHovered(false)}
+						isHovered={addToCartHovered}
+						onClick={handleAddToCart}
+					>
+						{addToCartHovered ? <PlusOutlined /> : 'Add to Cart'}
+					</Button>
 
-							<Button
-								onClick={toggle}
-								onMouseOver={() => setViewCardHovered(true)}
-								onMouseLeave={() => setViewCardHovered(false)}
-								className="viewCart"
-							>
-								{viewCartHovered ? (
-									<ShoppingCartOutlined
-										style={{ fontSize: 18 }}
-									/>
-								) : (
-									'View Cart'
-								)}
-							</Button>
-						</Buttons>
-					</div>
-				</Wrapper>
-			)}
-		</Toggle>
+					<Button
+						onClick={toggle}
+						onMouseOver={() => setViewCardHovered(true)}
+						onMouseLeave={() => setViewCardHovered(false)}
+						className="viewCart"
+					>
+						{viewCartHovered ? (
+							<ShoppingCartOutlined style={{ fontSize: 18 }} />
+						) : (
+							'View Cart'
+						)}
+					</Button>
+				</Buttons>
+			</div>
+		</Wrapper>
 	)
 }
 
@@ -159,28 +144,27 @@ const Wrapper = styled.div`
 	box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 1);
 	padding: 20px 0;
 	border-radius: 5px;
-	max-width: 800px;
-	min-width: 400px;
-	min-height: 600px;
-	width: 600px;
-	margin: 0 auto 100px auto;
 	background-color: #fff600;
 	z-index: 3000;
-	transform: scale(1.05) !important;
-	margin-top: ${(props) => (props.location === '/' ? '-200px' : '0px')};
+	transition: all 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+	max-width: 700px;
+	max-height: 900px;
+	margin-bottom: 80px;
+	margin-right: 60px;
+	margin-left: 60px;
 
-	@media screen and (max-width: 1400px) {
+	@media screen and (max-width: 992px) {
+		margin-bottom: 30px;
+	}
+
+	&:hover {
+		transform: scale(1.02) !important;
+	}
+
+	/* @media screen and (max-width: 1400px) {
 		max-width: 500px;
 		margin-top: 0;
 		margin-bottom: 100px;
-	}
-
-	@media screen and (max-width: 992px) {
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
-		margin: 0 auto 70px auto;
 	}
 
 	@media screen and (max-width: 768px) {
@@ -189,7 +173,7 @@ const Wrapper = styled.div`
 
 	@media screen and (max-width: 370px) {
 		width: 200px !important;
-	}
+	} */
 `
 
 const Title = styled.h1`
@@ -266,6 +250,11 @@ const Button = styled.button`
 	@media screen and (max-width: 768px) {
 		font-size: 12px;
 		margin: 0 auto 10px auto;
+	}
+
+	&:disabled {
+		background: gray;
+		cursor: not-allowed;
 	}
 `
 

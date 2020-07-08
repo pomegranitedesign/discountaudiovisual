@@ -3,16 +3,16 @@ import styled from 'styled-components'
 import Container from '../Components/Container'
 
 const About = (props) => {
-  useEffect(() => {
-    if (window.innerWidth >= 992) {
-      window.scrollTo({ top: 600, behavior: 'smooth' })
-    }
-  }, [])
-  return (
-    <Wrapper>
-      <Container>
-        <h1>About Us</h1>
-        <p>
+	useEffect(() => {
+		if (window.innerWidth >= 992) {
+			window.scrollTo({ top: 600, behavior: 'smooth' })
+		}
+	}, [])
+	return (
+		<Wrapper>
+			<Container>
+				<h1>About Us</h1>
+				<p>
 					At Discount Audio Visual, we understand customers are doing
 					things differently during these difficult economic times.
 					Today’s businesses do not want to spend an exorbitant amount
@@ -21,8 +21,8 @@ const About = (props) => {
 					makes sense for companies to have control of their own
 					health & safety protocols and rely less on venues that may
 					not have the proper measures implemented.
-          <br />
-          <br />
+					<br />
+					<br />
 					The over-priced costs charged by these ‘in-house audio
 					visual vendors’ are astronomical and unfair to companies
 					simply trying to have an employee engagement meeting,
@@ -33,17 +33,17 @@ const About = (props) => {
 					rental of the equipment. Not to mention the ridiculous costs
 					for WiFi charged by these venues with more service charges
 					added. Enough is enough and you deserve better!
-          <br />
-          <br />
+					<br />
+					<br />
 					For that reason, we are focused on simplifying the process
 					of renting audio visual equipment as stress free as possible
 					to allow you to have your events in your own office,
 					warehouse or other areas within your organization. Keep your
 					team together, informed and safe while saving costs!
-          <br />
-          <br />
-          <br />
-          <br />
+					<br />
+					<br />
+					<br />
+					<br />
 					We offer easy to understand audio visual packages and
 					provide substantial discounts on multiple day orders. For
 					your convenience, we encourage a simple checkout process
@@ -51,15 +51,15 @@ const About = (props) => {
 					administration costs associated with the larger ‘box type’
 					audio visual companies that are then passed onto the
 					customer.
-          <br />
-          <br />
+					<br />
+					<br />
 					We have skilled technicians that can deliver and assist in
 					the set up, operate and dismantle of the equipment at a
 					reasonable cost. You are also welcome to pick up & return
 					the equipment from our warehouse located near Dixie & 401 to
 					avoid the nominal transportation charges.
-          <br />
-          <br />
+					<br />
+					<br />
 					We are happy to take care of anything else you may require
 					such as: tables, chairs, catering, crowd control barriers,
 					hand-sanitizer stations, security, or any other needs you
@@ -67,15 +67,15 @@ const About = (props) => {
 					your needs. Give us a call today and let us show you how we
 					can put over 30 years of audio visual experience to work for
 					you!
-        </p>
-      </Container>
-    </Wrapper>
-  )
+				</p>
+			</Container>
+		</Wrapper>
+	)
 }
 
 const Wrapper = styled.div`
 	background-color: #fff600;
-	padding-top: 100px;
+	padding-top: 200px;
 	padding-bottom: 100px;
 
 	h1 {
@@ -92,6 +92,7 @@ const Wrapper = styled.div`
 		display: block;
 		margin: 0 auto;
 		font-size: 16px;
+		font-weight: 500;
 	}
 `
 

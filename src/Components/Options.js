@@ -48,7 +48,7 @@ const Options = ({ options = [], setSelectedPackage }) => {
 }
 
 const Wrapper = styled.div`
-	min-width: 400px;
+	/* max-width: 400px; */
 	display: block;
 	h2 {
 		font-size: 1.2vw;
